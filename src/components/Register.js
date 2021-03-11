@@ -21,8 +21,30 @@ class Register extends React.Component{
     handleSubmit = event => {
         event.preventDefault()
         const value = this.state
+        
         this.setState({
-            username: ''
+            username: '',
+            password: '',
+            
+        })
+
+        this.createUser(value)
+    }
+
+    createUser = value => {
+        const reqObj = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({user: value})
+        }
+
+        fetch('http://localhost:3000/users', reqObj)
+        .then(resp => resp.json())
+        .then(user => {
+            this.props.history.push('/profile')
+            this.props.signedIn(user)
         })
     }
 
@@ -39,7 +61,9 @@ render(){
 }
 
 const mapDispatchToProps = dispatch => {
-    return
+    return {
+        signedIn: (user) => dispatch({type: 'LOGIN_SUCCESS', username: user.username, userId: user.id, notes: []})
+    }
 }
 
 export default connect(null, mapDispatchToProps)(Register)

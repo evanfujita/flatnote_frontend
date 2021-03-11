@@ -20,11 +20,31 @@ class NoteForm extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        this.props.addNote(this.state)
-        // this.setState({
-        //     title: '',
-        //     body: ''
-        // })
+        const note = {...this.state, user_id: this.props.userId}
+        this.setState({
+            title: '',
+            body: '',
+
+        })
+
+        this.handleNote(note)
+    }
+
+    handleNote = note => {
+        const reqObj = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(note)
+        }
+
+        fetch('http://localhost:3000/notes', reqObj)
+        .then(resp => resp.json())
+        .then(note => {
+            this.props.addNote(note)
+        })
+
     }
 
     render(){
@@ -41,6 +61,13 @@ class NoteForm extends React.Component {
     }
 }
 
+
+const mapStateToProps = state => {
+    return {
+        userId: state.userId
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
         addNote: newNote => dispatch({
@@ -50,4 +77,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(NoteForm)
+export default connect(mapStateToProps, mapDispatchToProps)(NoteForm)

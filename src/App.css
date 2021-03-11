@@ -49,3 +49,43 @@
     transform: rotate(360deg);
   }
 }
+
+.note {
+  font-family: 'Roboto', sans-serif;
+}
+
+.noteContainer {
+  flex-direction: column;
+  width: '200px';
+  justify-content: left;
+  font-family: 'Roboto', sans-serif;
+}
+
+.userNotesIndex {
+  width: '200px';
+  flex-direction: column;
+  background-color: green;
+}
+
+.formContainer {
+  flex-direction: column;
+}
+
+.container {
+  width: 100%
+}
+
+.left-column {
+  flex-direction: left;
+}
+
+.middle-column {
+  width: 33%
+}
+
+.right-column {
+  flex-direction: column;
+  justify-content: right;
+  width: 20%
+}
+
