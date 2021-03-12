@@ -2,7 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import NoteContainer from './NoteContainer'
 import NoteForm from './NoteForm'
-import Grid from '@material-ui/core/Grid'
+import EditNoteForm from './EditNoteForm'
+
+import { Grid } from 'semantic-ui-react'
+import UserProfile from './UserProfile'
 
 class UserHome extends React.Component {
 
@@ -11,8 +14,17 @@ class UserHome extends React.Component {
         this.state = {
             displayNote: 0,
             displayForm: false,
-            displayUserInfo: false
+            displayUserInfo: false,
+            displayEditForm: false
         }
+    }
+
+    resetForms = () => {
+        this.setState({
+            displayForm: false,
+            displayUserInfo: false,
+            displayEditForm: false
+        })
     }
     
     handleClick = (id) => {
@@ -33,33 +45,62 @@ class UserHome extends React.Component {
         })
     }
 
+    handleEdit = () => {
+        this.setState({
+            displayEditForm: !this.state.displayEditForm
+        })
+    }
 
+    handleDelete = () => {
+        const id = this.state.displayNote
+        this.sendDelete(id)
+    }
+
+    sendDelete = (id) => {
+        fetch(`http://localhost:3000/notes/${id}`, {method: 'DELETE'})
+        .then(resp => resp.json())
+        .then(a => {
+            this.props.deleteNote(id)
+            this.resetForms()
+        })
+    }
 
     render(){
         const showNote = this.props.notes.find(note => note.id === this.state.displayNote)
-        const displayNote = showNote ? <p>{showNote.body}</p> : <p>nothin</p>
         
         return(
             <div>
             <header>
                 <h2 onClick={this.handleUsername}>{this.props.username}</h2>
-            </header>
-            <Grid container>
-                <Grid item className='left-column'>
+            </header><br/>
+            <Grid columns='three' divided>
+                <Grid.Column className='left-column'>
+                    <p>Notes</p>
                     {this.props.notes.length < 1 ? 'No Notes!' : <NoteContainer handleClick={this.handleClick} />}
-                </Grid>
-                <Grid item className='middle-column'>
+                </Grid.Column>
+                <Grid.Column item className='middle-column'>
                     <div className='container'>
-                        {displayNote}
+                        {showNote ? 
+                        <div>
+                            <p>{showNote.body}</p>
+                            <button class='circular tiny ui button' onClick={this.handleEdit}>edit</button><br/><br/>
+                            <button class='circular tiny ui button' onClick={this.handleDelete}>delete</button><br/><br/>
+                        </div>
+                        :
+                        null
+                        }
+                        {
+                            <p>{this.state.displayEditForm ? <EditNoteForm resetForms={this.resetForms} note={showNote} /> : null}</p>
+
+                        }
+
                     </div>
-                </Grid>
-                <Grid item className='right-column'>
-                    <button onClick={this.click}>add note</button><br/>
-                    {this.state.displayForm ? <NoteForm /> : 'do it'}<br/><br/>
-                    {this.state.displayUserInfo ? 'CHANGE' : null }
-                </Grid>
-                {/* user information container */}
-                {/* user notes container */}
+                </Grid.Column>
+                <Grid.Column item flex-direction='row-reverse' className='right-column'>
+                    <button class='circular ui button' onClick={this.click}>add note</button><br/><br/>
+                    {this.state.displayForm ? <NoteForm resetForms={this.resetForms} /> : null}<br/><br/>
+                    {this.state.displayUserInfo ? <UserProfile /> : null }
+                </Grid.Column>
             </Grid>
             </div>
         )
@@ -73,4 +114,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(UserHome)
+const mapDispatchToProps = dispatch => {
+    return {
+        deleteNote: id => dispatch({type: 'DELETE_NOTE', id: id})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserHome)

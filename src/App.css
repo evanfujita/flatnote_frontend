@@ -61,31 +61,38 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.userNotesIndex {
-  width: '200px';
-  flex-direction: column;
-  background-color: green;
+/* Dropdown Button */
+.dropbtn {
+  background-color: #434b43;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
 }
 
-.formContainer {
-  flex-direction: column;
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-.container {
-  width: 100%
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #41c9c9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
-.left-column {
-  flex-direction: left;
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
-.middle-column {
-  width: 33%
-}
+.dropdown-content a:hover {background-color: #41c9c9;}
 
-.right-column {
-  flex-direction: column;
-  justify-content: right;
-  width: 20%
-}
+.dropdown:hover .dropdown-content {display: block;}
 
+.dropdown:hover .dropbtn {background-color: #41c9c9;}

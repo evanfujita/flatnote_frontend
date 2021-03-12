@@ -8,8 +8,7 @@ class Note extends React.Component {
 
         return(
             <div className='note'>
-                <h2 onClick={()=> this.props.handleClick(id)}>{title}</h2>
-                {/* <p>{this.props.noteInfo.body}</p> */}
+                <h2 onClick={()=> this.props.handleClick(id)}>{title}</h2>                
             </div>
         )
     }

@@ -10,19 +10,20 @@ class Welcome extends React.Component {
     }
 
     displayUser = () => {
-         return this.props.signedIn ? <UserHome /> : null        
+         return this.props.signedIn ? <UserHome /> : null
     }
 
     render(){
         return(
             <div>
-                <h3>Welcome!</h3>
-                {this.displayUser}
-                <NavLink to='/login'>Login</NavLink><br/>
-                <NavLink to='/register'>Register</NavLink>
+                <h1>Welcome!</h1>
+                <NavLink to='/login'>Login</NavLink><br/><br/>
+                <NavLink to='/register'>Register</NavLink><br/><br/>
+
             </div>
         )
     }
+
 }
 
 const mapStateToProps = state => {

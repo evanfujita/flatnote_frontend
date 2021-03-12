@@ -4,11 +4,12 @@ import { Reducers } from '../reducers/Reducers'
 
 class NoteForm extends React.Component {
 
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
-            title: '',
-            body: ''
+            title: props.note.title,
+            body: props.note.body,
+            id: props.note.id
         }
     }
 
@@ -20,11 +21,10 @@ class NoteForm extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        const note = {...this.state, user_id: this.props.userId}
+        const note = {title: this.state.title, body: this.state.body}
         this.setState({
             title: '',
             body: '',
-
         })
 
         this.handleNote(note)
@@ -32,20 +32,19 @@ class NoteForm extends React.Component {
 
     handleNote = note => {
         const reqObj = {
-            method: 'POST',
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(note)
         }
 
-        fetch('http://localhost:3000/notes', reqObj)
+        fetch(`http://localhost:3000/notes/${this.state.id}`, reqObj)
         .then(resp => resp.json())
         .then(note => {
-            this.props.addNote(note)
+            this.props.editNote(note)
             this.props.resetForms()
         })
-
     }
 
     render(){
@@ -68,19 +67,13 @@ class NoteForm extends React.Component {
 }
 
 
-const mapStateToProps = state => {
-    return {
-        userId: state.userId
-    }
-}
-
 const mapDispatchToProps = dispatch => {
     return {
-        addNote: newNote => dispatch({
-            type: 'ADD_NOTE',
-            note: newNote
+        editNote: editedNote => dispatch({
+            type: 'EDIT_NOTE',
+            note: editedNote
         })
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NoteForm)
+export default connect(null, mapDispatchToProps)(NoteForm)

@@ -25,7 +25,6 @@ class Register extends React.Component{
         this.setState({
             username: '',
             password: '',
-            
         })
 
         this.createUser(value)
@@ -50,11 +49,21 @@ class Register extends React.Component{
 
 render(){
     return(
-        <form onSubmit={this.handleSubmit} >
-            <input onChange={this.handleChange} type='text' name='username' value={this.state.username} placeholder='username'/>
-            <input onChange={this.handleChange} type='text' name='password' value={this.state.password} placeholder='password'/>
-            <input onChange={this.handleChange} type='text' name='password_confirmation' value={this.state.password_confirmation} placeholder='confirm password'/>
-            <input type='submit' name='submit' value='Register'/>
+        <form class='ui form compact' onSubmit={this.handleSubmit} >
+            <div class='fields'>
+            <div class='field'>
+                <input onChange={this.handleChange} type='text' name='username' value={this.state.username} placeholder='username'/>
+            </div>
+            <div class='field'>
+                <input onChange={this.handleChange} type='text' name='password' value={this.state.password} placeholder='password'/>
+            </div>
+            <div class='field'>
+                <input onChange={this.handleChange} type='text' name='password_confirmation' value={this.state.password_confirmation} placeholder='confirm password'/>
+            </div>
+            <div class='field'>
+            <input class='ui submit button' type='submit' name='submit' value='Register'/>
+            </div>
+            </div>
         </form>
      )
     }   
