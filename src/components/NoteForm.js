@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Reducers } from '../reducers/Reducers'
 
 class NoteForm extends React.Component {
 

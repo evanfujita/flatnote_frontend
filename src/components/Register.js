@@ -49,7 +49,7 @@ class Register extends React.Component{
 
 render(){
     return(
-        <form class='ui form compact' onSubmit={this.handleSubmit} >
+        <form class='ui form' onSubmit={this.handleSubmit} >
             <div class='fields'>
             <div class='field'>
                 <input onChange={this.handleChange} type='text' name='username' value={this.state.username} placeholder='username'/>

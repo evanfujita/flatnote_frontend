@@ -83,8 +83,10 @@ class UserHome extends React.Component {
                         {showNote ? 
                         <div>
                             <p>{showNote.body}</p>
-                            <button class='circular tiny ui button' onClick={this.handleEdit}>edit</button><br/><br/>
+                            <div class='ui vertical buttons'>
+                            <button class='circular tiny ui button' onClick={this.handleEdit}>edit</button>
                             <button class='circular tiny ui button' onClick={this.handleDelete}>delete</button><br/><br/>
+                            </div>
                         </div>
                         :
                         null

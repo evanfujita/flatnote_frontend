@@ -1,6 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import NoteForm from './components/NoteForm'
 import LoginForm from './components/LoginForm'
 import Register from './components/Register'
 import Home from './components/Home'

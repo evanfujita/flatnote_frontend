@@ -24,8 +24,7 @@ class NoteContainer extends React.Component {
                 <div class='dropdown'>
                     <button class='dropbtn'>Sort By:</button>
                     <div class='dropdown-content'>
-                    <a id='title' onClick={this.handleSort}>title</a>
-                    <a id='date' onClick={this.handleSort}>date created</a>
+                    <p>placeholder</p>
                     </div>
                 </div>
                 {this.props.notes.map(note => 
