@@ -21,7 +21,6 @@ class UserProfile extends React.Component {
         fetch(`http://localhost:3000/users/${this.props.userId}`, {method: 'DELETE'})
         .then(resp => resp.json())
         .then(a => {
-            debugger
             this.props.history.push('/login')
         })
     }
