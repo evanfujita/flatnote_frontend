@@ -4,15 +4,12 @@ import LoggedIn from '../navbar/LoggedIn'
 
 class Navbar extends React.Component{
 
-    handleClick = event => {
-        debugger
-    }
-
     render(){
+        const { handleClick } = this.props
 
         return(
             <div>
-                <LoggedOut handleClick={this.handleClick} />
+                <LoggedOut handleClick={handleClick} />
                 <LoggedIn />
             </div>
         )
