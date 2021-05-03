@@ -1,11 +1,15 @@
 import './App.css';
-import Login from './components/Login'
+import Login from './components/main/Login'
+import Navbar from './components/main/Navbar'
 
 function App() {
   return (
         <div>
-        <p>Welcome</p>
-        <Login />
+          <div class='App-header'>
+            <Navbar />
+            <p>Welcome</p>
+          </div>
+          <Login />
         </div>
   );
 }
