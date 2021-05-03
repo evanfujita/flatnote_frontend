@@ -1,17 +1,20 @@
 import React from 'react'
+import LoggedOut from '../navbar/LoggedOut'
+import LoggedIn from '../navbar/LoggedIn'
 
 class Navbar extends React.Component{
 
-    handleClick = () => {
-        console.log('clicked')
+    handleClick = event => {
+        debugger
     }
 
     render(){
+
         return(
-            <ul>
-                <li class='navbar-item' name='Register' onClick={this.handleClick} >register</li>
-                <li class='navbar-item' name='Login' onClick={this.handleClick} >login</li>
-            </ul>
+            <div>
+                <LoggedOut handleClick={this.handleClick} />
+                <LoggedIn />
+            </div>
         )
     }
 }
