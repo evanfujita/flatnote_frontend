@@ -1,30 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import LoginForm from '../forms/LoginForm'
 import RegisterForm from '../forms/RegisterForm'
 
-class Login extends React.Component{
-    state={}
+const Login = props => {
 
-    handleChange = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
+    const [form, setForm] = useState(null)
+
+    const handleChange = event => {
+        setForm(event.target.name)
     }
 
-    handleSubmit = event => {
+    const handleSubmit = event => {
         event.preventDefault()
         console.log('submit', event)
     }
 
-    render(){
         return(
-            <form onSubmit={this.handleSubmit}>
-                <LoginForm handleChange={this.handleChange} />
-                <RegisterForm handleChange={this.handleChange} />
+            <form onSubmit={handleSubmit}>
+                <LoginForm handleChange={handleChange} />
+                <RegisterForm handleChange={handleChange} />
                 <input type='submit' />
             </form>
         )
-    }
 
 }
 
