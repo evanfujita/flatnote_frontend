@@ -9,7 +9,8 @@ class Navbar extends React.Component{
     render(){
         return(
             <ul>
-                <li class='navbar' name='Register' onClick={this.handleClick} >register</li>
+                <li class='navbar-item' name='Register' onClick={this.handleClick} >register</li>
+                <li class='navbar-item' name='Login' onClick={this.handleClick} >login</li>
             </ul>
         )
     }
