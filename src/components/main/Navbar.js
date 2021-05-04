@@ -5,11 +5,11 @@ import LoggedIn from '../navbar/LoggedIn'
 class Navbar extends React.Component{
 
     render(){
-        const { handleClick } = this.props
+        
 
         return(
             <div>
-                <LoggedOut handleClick={handleClick} />
+                <LoggedOut />
                 {/* <LoggedIn handleClick={handleClick} /> */}
             </div>
         )
