@@ -3,7 +3,7 @@ import LoginForm from '../forms/LoginForm'
 import RegisterForm from '../forms/RegisterForm'
 
 const Login = props => {
-
+    const { type } = props
     const [form, setForm] = useState(null)
 
     const handleChange = event => {
@@ -17,8 +17,7 @@ const Login = props => {
 
         return(
             <form onSubmit={handleSubmit}>
-                <LoginForm handleChange={handleChange} />
-                {/* <RegisterForm handleChange={handleChange} /> */}
+                { type === 'login' ? <LoginForm handleChange={handleChange} /> : <RegisterForm handleChange={handleChange} /> }
                 <input type='submit' />
             </form>
         )

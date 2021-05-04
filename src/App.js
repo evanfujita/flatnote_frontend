@@ -9,8 +9,13 @@ function App() {
   const [show, setShow] = useState(null)
   
   const handleLogin = event => {
-    login ? setLogin(null) : setLogin(<Login />)
+    const type = event.target.id
+    login ? setLogin(null) : setLogin(<Login type={type} />)
   }
+
+  
+
+
 
   return (
         <div>
