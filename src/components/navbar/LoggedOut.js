@@ -6,7 +6,6 @@ const LoggedOut = props => {
         <ul>
             <li class='navbar-item' id='Register' onClick={handleClick} >register</li>
             <li class='navbar-item' id='Login' onClick={handleClick} >login</li>
-            <li class='navbar-item' id='About' onClick={handleClick} >about</li>
         </ul>
     )
 }

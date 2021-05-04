@@ -5,19 +5,20 @@ import Navbar from './components/main/Navbar'
 
 function App() {
 
-  const [show, setShow] = useState(null);
+  const [login, setLogin] = useState(null);
+  const [show, setShow] = useState(null)
   
-  const handleClick = event => {
-    setShow(event.target.id)
+  const handleLogin = event => {
+    login ? setLogin(null) : setLogin(<Login />)
   }
 
   return (
         <div>
           <div class='App-header'>
-            <Navbar handleClick={handleClick} />
-            {!show ? 'Welcome' : show}
+            <Navbar handleClick={handleLogin} />
+            {login ? login : null}
           </div>
-          <Login />
+          {!show ? 'Welcome' : show}
         </div>
   );
 }

@@ -10,7 +10,7 @@ class Navbar extends React.Component{
         return(
             <div>
                 <LoggedOut handleClick={handleClick} />
-                <LoggedIn />
+                {/* <LoggedIn handleClick={handleClick} /> */}
             </div>
         )
     }

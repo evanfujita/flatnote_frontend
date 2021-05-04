@@ -18,7 +18,7 @@ const Login = props => {
         return(
             <form onSubmit={handleSubmit}>
                 <LoginForm handleChange={handleChange} />
-                <RegisterForm handleChange={handleChange} />
+                {/* <RegisterForm handleChange={handleChange} /> */}
                 <input type='submit' />
             </form>
         )

@@ -6,7 +6,7 @@
   padding-left: 2em;
   border-style: white, dotted;
   background-color: #282c34;
-  min-height: 100vh;
+  max-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: right;
@@ -56,5 +56,11 @@
 ul {
   display: flex;
   margin-top: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 2em;  
 }
+
+.pos-right{
+  position: right;
+  justify-content: right;
+}
+
