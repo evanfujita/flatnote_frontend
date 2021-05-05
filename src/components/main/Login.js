@@ -17,7 +17,7 @@ class Login extends React.Component {
         const handleSubmit = event => {
             event.preventDefault()
             const user = this.state
-            const reqObj = createReqObj('POST', user)
+            const reqObj = createReqObj('POST', {user: user})
             if(!!this.state.password_confirmation){registerUserFetch(reqObj)}
             
         }
