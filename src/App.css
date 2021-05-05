@@ -17,10 +17,12 @@
 }
 
 .main {
+  padding-left: 2em;
+  padding-top: 2em;
   border-style: white, dotted;
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -62,4 +64,14 @@ ul {
   display: flex;
   margin-top: 1em;
   margin-bottom: 2em;  
+}
+
+.first-column{
+  float: left;
+  width: 30%;
+}
+
+.second-column {
+  float: left;
+  width: 70%;
 }

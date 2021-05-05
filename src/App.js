@@ -10,7 +10,14 @@ function App() {
             <Navbar />
           </div>
           <div class='main'>
-            <NoteForm />
+            <div class='first-column'>
+              <p>Notes</p>
+            </div>
+            <div class='second-column'>
+              <NoteForm />
+              <NoteForm />
+              <NoteForm />
+            </div>
           </div>
         </div>
   );
