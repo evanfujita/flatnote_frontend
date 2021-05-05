@@ -1,7 +1,7 @@
 import React from 'react'
 import LoginForm from '../forms/LoginForm'
 import RegisterForm from '../forms/RegisterForm'
-import registerUserFetch from '../../helpers/fetch'
+import { registerUserFetch, createReqObj } from '../../helpers/fetch'
 
 class Login extends React.Component {
     state = {}
@@ -16,7 +16,9 @@ class Login extends React.Component {
 
         const handleSubmit = event => {
             event.preventDefault()
-            if(!!this.state.password_confirmation){registerUserFetch(this.state)}
+            const user = this.state
+            const reqObj = createReqObj('POST', user)
+            if(!!this.state.password_confirmation){registerUserFetch(reqObj)}
             
         }
 
