@@ -9,7 +9,9 @@ function App() {
           <div class='App-header'>
             <Navbar />
           </div>
+          <div class='main'>
             <NoteForm />
+          </div>
         </div>
   );
 }
