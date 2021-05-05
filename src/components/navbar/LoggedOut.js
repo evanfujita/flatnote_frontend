@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import LoginForm from '../forms/LoginForm'
 import Login from '../main/Login'
 
-const LoggedOut = props => {
+const LoggedOut = () => {
     const [login, setLogin] = useState(null);
     
     const handleLogin = event => {

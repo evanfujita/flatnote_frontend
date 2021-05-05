@@ -6,7 +6,7 @@ const RegisterForm = props => {
         <>
             <input type='text' name='username' placeholder='username' onChange={handleChange} />
             <input type='password' name='password' placeholder='password' onChange={handleChange}/>
-            <input type='password' name='password confirmation' placeholder='password confirmation' onChange={handleChange}/>
+            <input type='password' name='password_confirmation' placeholder='password confirmation' onChange={handleChange}/>
         </>
     )
 }

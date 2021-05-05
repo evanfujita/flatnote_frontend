@@ -1,6 +1,7 @@
 import React from 'react'
 import LoginForm from '../forms/LoginForm'
 import RegisterForm from '../forms/RegisterForm'
+import registerUserFetch from '../../helpers/fetch'
 
 class Login extends React.Component {
     state = {}
@@ -15,7 +16,8 @@ class Login extends React.Component {
 
         const handleSubmit = event => {
             event.preventDefault()
-            console.log('submit', event)
+            if(!!this.state.password_confirmation){registerUserFetch(this.state)}
+            
         }
 
             return(

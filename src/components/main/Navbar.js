@@ -5,7 +5,6 @@ import LoggedIn from '../navbar/LoggedIn'
 class Navbar extends React.Component{
 
     render(){
-        
 
         return(
             <div>
