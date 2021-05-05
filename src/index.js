@@ -8,7 +8,6 @@ import reportWebVitals from './reportWebVitals';
 import reducer from './reducers/Reducers'
 import 'semantic-ui-css/semantic.min.css'
 
-
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
