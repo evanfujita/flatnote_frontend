@@ -5,19 +5,16 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Reducers from './reducers/Reducers'
-import { BrowserRouter } from 'react-router-dom'
+import reducer from './reducers/Reducers'
 import 'semantic-ui-css/semantic.min.css'
 
 
-const store = createStore(Reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
-  <BrowserRouter>
     <Provider store={store}>
       <App />
-    </Provider>
-  </BrowserRouter>,
+    </Provider>,
   document.getElementById('root')
 );
 

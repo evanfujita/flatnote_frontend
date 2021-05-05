@@ -8,8 +8,11 @@ export const createReqObj = (method, body) => {
     )
 }
 
-export const registerUserFetch = (reqObj) => {
-    // debugger
-    fetch(`http://localhost:3000/users`, reqObj)
+export const postFetch = (resource, reqObj, history) => {
+    fetch(`http://localhost:3000/${resource}`, reqObj)
+    .then(resp => resp.json())
+    .then(data => {
+        console.log(data)
+    })
 }
 
