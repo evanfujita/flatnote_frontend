@@ -1,4 +1,4 @@
-function notes(state=null, action){
+function notes (state=null, action){
     switch(action.type){
         case 'LOGIN_SUCCESS':
             return action.user.notes

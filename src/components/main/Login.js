@@ -30,8 +30,7 @@ class Login extends React.Component {
                 { type === 'login' ? <LoginForm handleChange={handleChange} /> : <RegisterForm handleChange={handleChange} /> }
                 <input type='submit' />
             </form>
-        )
-        }
+        )}
 }
 
 const mapDispatchToProps = {

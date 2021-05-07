@@ -66,13 +66,15 @@ ul {
 }
 
 .first-column{
+  margin-left: 2em;
   float: left;
   width: 30%;
 }
 
 .second-column {
+  margin-right: 2em;
   float: left;
-  width: 70%;
+  
 }
 
 .first-column > p {
