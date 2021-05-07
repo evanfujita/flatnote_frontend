@@ -7,7 +7,8 @@ import { useSelector } from 'react-redux'
 
 function App() {
   const user = useSelector(state => state.user)
-  const selectedNote = useSelector(state => state.selectedNote)
+  const selectedNote = useSelector(state => state.selections.note)
+  const displayForm = useSelector(state => state.selections.addNoteForm)
 
   return (
         <div>
@@ -22,7 +23,9 @@ function App() {
             <div class='second-column'>
               {/* {user && user.id ? <NoteForm /> : null} */}
               {user === 'FAIL' ? 'There was a problem' : null}
-              {selectedNote ? <Note /> : null}
+              {selectedNote ? <Note note={selectedNote} /> : null}
+              {displayForm ? <NoteForm /> : null}
+              
             </div>
           </div>
         </div>

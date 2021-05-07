@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import userReducer from './user'
 import notesReducer from './notes'
-import selectedNoteReducer from './selectedNote'
+import selectionsReducer from './selections'
 
 export default combineReducers({
     user: userReducer,
     notes: notesReducer,
-    selectedNote: selectedNoteReducer
+    selections: selectionsReducer
 })
