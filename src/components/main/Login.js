@@ -22,6 +22,7 @@ class Login extends React.Component {
             const user = this.state
             const reqObj = createReqObj('POST', {user: user})
             this.state.password_confirmation ? loginFetch(reqObj, loginAuth, loginFail) : loginFetch(reqObj, loginAuth, loginFail)
+            event.target.reset()
         }
         
         return(

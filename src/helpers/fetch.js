@@ -22,6 +22,7 @@ export const postFetch = (resource, reqObj) => {
     fetch(`http://localhost:3000/${resource}`, reqObj)
     .then(resp => resp.json())
     .then(data => {
+        debugger
         console.log(data)
     })
 }
