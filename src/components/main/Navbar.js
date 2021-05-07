@@ -1,18 +1,16 @@
 import React from 'react'
 import LoggedOut from '../navbar/LoggedOut'
+import { useSelector } from 'react-redux'
 import LoggedIn from '../navbar/LoggedIn'
 
-class Navbar extends React.Component{
-
-    render(){
-
-        return(
-            <div>
-                <LoggedOut />
-                {/* <LoggedIn handleClick={handleClick} /> */}
-            </div>
-        )
-    }
+const Navbar = props => {
+    const user = useSelector(state => state.user)
+    return(
+        <div>
+            {user && user.id ? <LoggedIn /> : <LoggedOut />}
+        </div>
+    )
+    
 }
 
 export default Navbar
