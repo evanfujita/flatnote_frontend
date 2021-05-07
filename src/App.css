@@ -102,8 +102,9 @@ li {
   color: #61dafb;
 }
 
-.selected:hover {
+.title:hover {
   color: orange;
+  cursor: pointer;
 }
 
 .controls {
@@ -111,4 +112,8 @@ li {
   border-left-style: solid;
   border-left-width: 1px;
   padding-left: 2em;
+}
+
+.red {
+  color: red;
 }

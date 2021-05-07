@@ -9,7 +9,8 @@ const LoggedIn = () => {
 
     return (
         <ul>
-            <li class='navbar-item' id='Notes'  >notes</li>
+            <li class='navbar-item' id='Notes'>notes</li>
+            <li class='navbar-item' id='Tasks'>tasks</li>
             <li class='navbar-item' id='addNote' onClick={()=> dispatch(addNoteForm())} >add note</li>
             {selectedNote ? <Controls /> : null}
             <span class='positioned'>

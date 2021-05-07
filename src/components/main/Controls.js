@@ -4,7 +4,9 @@ const Controls = () => {
     return (
         <span class='controls'>
             <li class='navbar-item'>edit</li>
-            <li class='navbar-item'>delete</li>
+            <span class='red'>
+                <li class='navbar-item'>delete</li>
+            </span>
         </span>
     )
 }
