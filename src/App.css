@@ -72,8 +72,6 @@ li {
 .positioned {
   float: right;
   margin-right: 2em;
-
-
 }
 
 .first-column{
@@ -106,4 +104,11 @@ li {
 
 .selected:hover {
   color: orange;
+}
+
+.controls {
+  margin-left: 2em;
+  border-left-style: solid;
+  border-left-width: 1px;
+  padding-left: 2em;
 }
