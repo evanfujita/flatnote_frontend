@@ -11,9 +11,10 @@ export const createReqObj = (method, body) => {
 export const loginFetch = (reqObj, reducer) => {
     fetch('http://localhost:3000/login', reqObj)
     .then(resp => resp.json())
-    .then(data => {
-        console.log(data)
-        debugger
+    .then(user => {
+
+        console.log(user)
+        
     })
 }
 
