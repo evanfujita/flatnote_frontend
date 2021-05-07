@@ -6,9 +6,8 @@ import LoggedIn from '../navbar/LoggedIn'
 const Navbar = () => {
     const user = useSelector(state => state.user)
 
-
     return(
-        <div>
+        <div class='navbar'>
             {user && user.id ? <LoggedIn /> : <LoggedOut />}
         </div>
     )

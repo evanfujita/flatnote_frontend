@@ -59,9 +59,21 @@
 }
 
 ul {
-  display: flex;
   margin-top: 1em;
   margin-bottom: 2em;  
+  float: left;
+  width: 100%;
+}
+
+li {
+  display: inline;
+}
+
+.positioned {
+  float: right;
+  margin-right: 2em;
+
+
 }
 
 .first-column{
@@ -90,4 +102,8 @@ ul {
 
 .selected {
   color: #61dafb;
+}
+
+.selected:hover {
+  color: orange;
 }

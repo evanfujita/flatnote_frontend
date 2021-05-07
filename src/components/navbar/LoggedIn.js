@@ -10,7 +10,9 @@ const LoggedIn = () => {
         <ul>
             <li class='navbar-item' id='Notes'  >notes</li>
             <li class='navbar-item' id='addNote' onClick={()=> dispatch(addNoteForm())} >add note</li>
-            <li class='navbar-item' onClick={()=> dispatch(logout())}>logout</li>
+            <span class='positioned'>
+                <li class='navbar-item' onClick={()=> dispatch(logout())}>logout</li>
+            </span>
         </ul>
     )
 }
