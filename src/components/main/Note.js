@@ -3,7 +3,7 @@ import React from 'react'
 const Note = props => {
     const { note } = props
     return (
-        <div>
+        <div class='container'>
             {note.body}
         </div>
     )

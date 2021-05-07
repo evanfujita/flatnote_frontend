@@ -17,11 +17,9 @@ function App() {
           </div>
           <div class='main'>
             <div class='first-column'>
-              <p>Notes</p>
               {user && user.id ? <NotesContainer /> : null}
             </div>
             <div class='second-column'>
-
               {user === 'FAIL' ? 'There was a problem' : null}
               {selectedNote ? <Note note={selectedNote} /> : null}
               {displayForm ? <NoteForm /> : null}
