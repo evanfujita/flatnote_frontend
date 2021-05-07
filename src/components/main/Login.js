@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import LoginForm from '../forms/LoginForm'
 import RegisterForm from '../forms/RegisterForm'
-import { loginFetch, createReqObj } from '../../helpers/fetch'
+import { loginFetch, postFetch, createReqObj } from '../../helpers/fetch'
 import { loginAuth, loginFail } from '../../actions/user'
 
 class Login extends React.Component {
@@ -21,7 +21,7 @@ class Login extends React.Component {
             const { loginAuth, loginFail } = this.props
             const user = this.state
             const reqObj = createReqObj('POST', {user: user})
-            this.state.password_confirmation ? loginFetch(reqObj, loginAuth, loginFail) : loginFetch(reqObj, loginAuth, loginFail)
+            this.state.password_confirmation ? postFetch('users', reqObj, loginAuth) : loginFetch(reqObj, loginAuth, loginFail)
             event.target.reset()
         }
         

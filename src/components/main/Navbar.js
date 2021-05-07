@@ -3,7 +3,7 @@ import LoggedOut from '../navbar/LoggedOut'
 import { useSelector } from 'react-redux'
 import LoggedIn from '../navbar/LoggedIn'
 
-const Navbar = props => {
+const Navbar = () => {
     const user = useSelector(state => state.user)
     return(
         <div>

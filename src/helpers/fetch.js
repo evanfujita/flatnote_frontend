@@ -18,12 +18,11 @@ export const loginFetch = (reqObj, loginAuth, loginFail) => {
     })
 }
 
-export const postFetch = (resource, reqObj) => {
+export const postFetch = (resource, reqObj, reducer) => {
     fetch(`http://localhost:3000/${resource}`, reqObj)
     .then(resp => resp.json())
     .then(data => {
-        debugger
-        console.log(data)
+        reducer(data)
     })
 }
 
