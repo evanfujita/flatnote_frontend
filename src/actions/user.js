@@ -4,3 +4,9 @@ export const loginAuth = user => {
         user
     }
 }
+
+export const loginFail = () => {
+    return {
+        type: 'LOGIN_FAIL'
+    }
+}

@@ -1,16 +1,15 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import LoginForm from '../forms/LoginForm'
 import RegisterForm from '../forms/RegisterForm'
 import { loginFetch, createReqObj } from '../../helpers/fetch'
-import { useDispatch, useSelector } from 'react-redux'
-import { loginAuth } from '../../actions/user'
+import { loginAuth, loginFail } from '../../actions/user'
 
 class Login extends React.Component {
     state = {}
     
     render(){
         const { type } = this.props
-        const dispatch = useDispatch()
         const handleChange = event => {
             this.setState({
                 [event.target.name]:event.target.value
@@ -19,9 +18,10 @@ class Login extends React.Component {
 
         const handleSubmit = event => {
             event.preventDefault()
+            const { loginAuth, loginFail } = this.props
             const user = this.state
             const reqObj = createReqObj('POST', {user: user})
-            this.state.password_confirmation ? loginFetch(reqObj, dispatch(loginAuth())) : loginFetch(reqObj, dispatch(loginAuth()))
+            this.state.password_confirmation ? loginFetch(reqObj, loginAuth, loginFail) : loginFetch(reqObj, loginAuth, loginFail)
         }
         
         return(
@@ -33,4 +33,9 @@ class Login extends React.Component {
         }
 }
 
-export default Login
+const mapDispatchToProps = {
+    loginAuth,
+    loginFail
+}
+
+export default connect(null, mapDispatchToProps)(Login)

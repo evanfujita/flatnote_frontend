@@ -8,13 +8,13 @@ export const createReqObj = (method, body) => {
     )
 }
 
-export const loginFetch = (reqObj, reducer) => {
+export const loginFetch = (reqObj, loginAuth, loginFail) => {
     fetch('http://localhost:3000/login', reqObj)
     .then(resp => resp.json())
     .then(user => {
-
-        console.log(user)
-        
+        // debugger
+        if (user.id){loginAuth(user)}
+        if (user.error){loginFail()}
     })
 }
 

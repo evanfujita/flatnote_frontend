@@ -1,8 +1,9 @@
 function user(state=null, action){
     switch(action.type){
         case 'LOGIN_SUCCESS':
-            debugger
             return action.user
+        case 'LOGIN_FAIL':
+            return 'FAIL'
         default:
             return state
     }
