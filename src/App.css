@@ -1,6 +1,5 @@
 .App {
   margin-left: 2em;
-
 }
 
 .App-header{
@@ -17,7 +16,7 @@
 }
 
 .main {
-  padding-left: 2em;
+  /* padding-left: 2em; */
   padding-top: 2em;
   border-style: white, dotted;
   background-color: #282c34;
@@ -74,4 +73,8 @@ ul {
 .second-column {
   float: left;
   width: 70%;
+}
+
+.first-column > p {
+  text-align: center;
 }

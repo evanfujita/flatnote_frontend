@@ -8,8 +8,25 @@ export const createReqObj = (method, body) => {
     )
 }
 
-export const postFetch = (resource, reqObj, history) => {
+export const loginFetch = (reqObj, reducer) => {
+    fetch('http://localhost:3000/login', reqObj)
+    .then(resp => resp.json())
+    .then(data => {
+        console.log(data)
+        debugger
+    })
+}
+
+export const postFetch = (resource, reqObj) => {
     fetch(`http://localhost:3000/${resource}`, reqObj)
+    .then(resp => resp.json())
+    .then(data => {
+        console.log(data)
+    })
+}
+
+export const getFetch = resource => {
+    fetch(`http://localhost:3000/${resource}`)
     .then(resp => resp.json())
     .then(data => {
         console.log(data)
