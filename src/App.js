@@ -4,7 +4,7 @@ import NoteForm from './components/forms/NoteForm'
 import { useSelector } from 'react-redux'
 
 function App() {
-
+  const user = useSelector(state => state.user)
   return (
         <div>
           <div class='App-header'>
@@ -15,9 +15,8 @@ function App() {
               <p>Notes</p>
             </div>
             <div class='second-column'>
-              <NoteForm />
-              <NoteForm />
-              <NoteForm />
+              {user && user.id ? <NoteForm /> : null}
+              {user === 'FAIL' ? 'There was a problem' : null}
             </div>
           </div>
         </div>
