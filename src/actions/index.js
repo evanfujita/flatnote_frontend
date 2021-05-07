@@ -16,3 +16,10 @@ export const logout = () => {
         type: 'LOGOUT_SUCCESS'
     }
 }
+
+export const add = item => {
+    return {
+        type: 'ADD',
+        item
+    }
+}

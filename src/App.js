@@ -21,11 +21,10 @@ function App() {
               {user && user.id ? <NotesContainer /> : null}
             </div>
             <div class='second-column'>
-              {/* {user && user.id ? <NoteForm /> : null} */}
+
               {user === 'FAIL' ? 'There was a problem' : null}
               {selectedNote ? <Note note={selectedNote} /> : null}
               {displayForm ? <NoteForm /> : null}
-              
             </div>
           </div>
         </div>

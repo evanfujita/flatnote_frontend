@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
 import { logout, addNoteForm } from '../../actions/index'
 
-const LoggedIn = props => {
+const LoggedIn = () => {
     
-    // const { handleClick, handleAddNote } = props
     const dispatch = useDispatch()
 
     return (

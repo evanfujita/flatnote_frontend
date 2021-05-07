@@ -4,7 +4,9 @@ function notes (state=null, action){
             return action.user.notes
         case 'LOGOUT_SUCCESS':
             return null
-        
+        case 'ADD':
+            const updatedNotes = [...state, action.item]
+            return updatedNotes
         default:
             return state
     }
