@@ -1,6 +1,7 @@
 import './App.css';
 import Navbar from './components/main/Navbar'
 import NoteForm from './components/forms/NoteForm'
+import NotesContainer from './components/main/NotesContainer'
 import { useSelector } from 'react-redux'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <div class='main'>
             <div class='first-column'>
               <p>Notes</p>
+              {user && user.id ? <NotesContainer /> : null}
             </div>
             <div class='second-column'>
               {user && user.id ? <NoteForm /> : null}
