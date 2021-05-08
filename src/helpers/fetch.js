@@ -34,3 +34,12 @@ export const getFetch = resource => {
     })
 }
 
+export const deleteFetch = (resource) => {
+    debugger
+    fetch(`http://localhost:3000/${resource}`, {method: 'DELETE'})
+    .then(resp => resp.json())
+    .then(data => {
+        
+    })
+}
+
