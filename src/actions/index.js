@@ -23,3 +23,10 @@ export const add = item => {
         item
     }
 }
+
+export const remove = item => {
+    return {
+        type: 'DELETE',
+        item
+    }
+}

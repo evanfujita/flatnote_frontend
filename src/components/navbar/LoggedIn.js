@@ -12,7 +12,7 @@ const LoggedIn = () => {
             <li class='navbar-item' id='Notes'>notes</li>
             <li class='navbar-item' id='Tasks'>tasks</li>
             <li class='navbar-item' id='addNote' onClick={()=> dispatch(addNoteForm())} >add note</li>
-            {selectedNote ? <Controls /> : null}
+            {selectedNote ? <Controls item={selectedNote} /> : null}
             <span class='positioned'>
                 <li class='navbar-item' onClick={()=> dispatch(logout())}>logout</li>
             </span>
