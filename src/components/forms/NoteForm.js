@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { createReqObj, postFetch } from '../../helpers/fetch'
-import { add } from '../../actions/index'
+import { add, addNoteForm } from '../../actions/index'
 
 class NoteForm extends React.Component{
     state = {
@@ -18,6 +18,7 @@ class NoteForm extends React.Component{
         event.preventDefault()
         const reqObj = createReqObj('POST', this.state)
         postFetch('notes', reqObj, this.props.add)
+        this.props.addNoteForm()
         event.target.reset()
     }
 
@@ -40,7 +41,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    add
+    add,
+    addNoteForm
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NoteForm)

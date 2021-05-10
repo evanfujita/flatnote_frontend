@@ -13,7 +13,7 @@ const Controls = props => {
     }
 
     const handleEdit = event => {
-console.log('asdf')
+        
     }
 
     return (

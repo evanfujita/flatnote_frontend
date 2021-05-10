@@ -22,7 +22,7 @@ function App() {
             <div class='second-column'>
               {user === 'FAIL' ? 'There was a problem' : null}
               {selectedNote ? <Note note={selectedNote} /> : null}
-              {displayForm ? <NoteForm /> : null}
+              {displayForm ? <NoteForm type='add' /> : null}
             </div>
           </div>
         </div>
