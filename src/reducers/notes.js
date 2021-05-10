@@ -3,14 +3,28 @@ function notes (state=null, action){
     switch(action.type){
         case 'LOGIN_SUCCESS':
             return action.user.notes
+    
         case 'LOGOUT_SUCCESS':
             return null
+       
         case 'ADD':
             updatedNotes = [...state, action.item]
             return updatedNotes
+       
+        case 'UPDATE':
+            updatedNotes = state.map(note => {
+                if (note.id === action.item.id){
+                    return action.item
+                } else {
+                    return note
+                }
+            })
+            return updatedNotes
+            
         case 'DELETE':
             updatedNotes = state.filter(note=> (note.id != action.item.id))
             return updatedNotes
+        
         default:
             return state
     }

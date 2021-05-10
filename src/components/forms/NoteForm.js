@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { createReqObj, postFetch } from '../../helpers/fetch'
+import { createReqObj, postFetch, updateFetch } from '../../helpers/fetch'
 import { add, addNoteForm } from '../../actions/index'
 
 class NoteForm extends React.Component{
@@ -16,9 +16,16 @@ class NoteForm extends React.Component{
 
     handleSubmit = event => {
         event.preventDefault()
-        const reqObj = createReqObj('POST', this.state)
-        postFetch('notes', reqObj, this.props.add)
-        this.props.addNoteForm()
+        
+        if (this.props.selections.addNoteForm){
+            const reqObj = createReqObj('POST', this.state)
+            postFetch('notes', reqObj, this.props.add)
+            this.props.addNoteForm()
+        } else if (this.props.selections.updateNoteForm){
+            const reqObj = createReqObj('PATCH', this.state)
+            const id = this.props.selections.note.id
+            updateFetch(`notes/${id}`, reqObj, this.props.add)
+        }
         event.target.reset()
     }
 
@@ -36,7 +43,8 @@ class NoteForm extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        user: state.user
+        user: state.user,
+        selections: state.selections
     }
 }
 

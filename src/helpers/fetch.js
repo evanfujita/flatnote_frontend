@@ -47,6 +47,7 @@ export const updateFetch = (resource, reqObj, reducer) => {
     .then(resp => resp.json())
     .then(data => {
         debugger
+        reducer(data)
     })
 }
 

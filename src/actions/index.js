@@ -36,3 +36,10 @@ export const remove = item => {
         item
     }
 }
+
+export const update = item => {
+    return {
+        type: 'UPDATE',
+        item
+    }
+}
