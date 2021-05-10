@@ -9,15 +9,17 @@ const selections = (state={note: null, addNoteForm: false, updateNoteForm: false
     case 'ADD_NOTE_FORM':
         return {
             ...state,
-            addNoteForm: !state.addNoteForm
+            addNoteForm: !state.addNoteForm,
+            updateNoteForm: false
         }
         case 'UPDATE_NOTE_FORM':
         return {
             ...state,
+            addNoteForm: false,
             updateNoteForm: !state.updateNoteForm
         }
     case 'LOGOUT_SUCCESS':
-        return null
+        return {}
     case 'DELETE':
         return{
             ...state,

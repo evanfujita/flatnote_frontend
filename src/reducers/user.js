@@ -8,7 +8,7 @@ function user(state=null, action){
         case 'LOGIN_FAIL':
             return 'FAIL'
         case 'LOGOUT_SUCCESS':
-            return null
+            return {}
         default:
             return state
     }

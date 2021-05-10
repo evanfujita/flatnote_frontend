@@ -13,7 +13,7 @@ const LoggedOut = () => {
         <ul>
             <li class='navbar-item' id='register' onClick={handleLogin} >register</li>
             <li class='navbar-item' id='login' onClick={handleLogin} >login</li>
-            {login}
+            <div>{login}</div>
         </ul>
     )
 }

@@ -5,7 +5,7 @@ function notes (state=null, action){
             return action.user.notes
     
         case 'LOGOUT_SUCCESS':
-            return null
+            return {}
        
         case 'ADD':
             updatedNotes = [...state, action.item]
