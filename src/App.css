@@ -3,13 +3,13 @@
 }
 
 .App-header{
-  padding-left: 2em;
+  /* padding-left: 2em; */
   background-color: #282c34;
   max-height: 20vh;
   display: flex;
   flex-direction: column;
-  align-items: right;
-  justify-content: right;
+  /* align-items: right; */
+  /* justify-content: right; */
   color: white;
 }
 
@@ -49,7 +49,7 @@
   color: #61dafb;
 }
 
-.navbar-item:hover {
+.navbar-item:hover, .selected-navbar-item:hover {
   cursor: pointer;
 }
 
@@ -128,12 +128,17 @@ li {
   padding: 1em;
 }
 
-.login-form{
-
-}
-
 .form-field {
   margin-right: 4em;
   margin-top: 1em; 
   width: 100%;
+}
+
+.delete-popup {
+  visibility: hidden;
+  z-index: 1;
+}
+
+.delete-popup .show {
+  visibility: visible;
 }

@@ -4,6 +4,7 @@ import { selectNote } from '../../actions/index'
 
 const NotesContainer = () => {
     const notes = useSelector(state => state.notes)
+    const viewNotes = useSelector(state => state.selections.viewNotes)
     const dispatch = useDispatch()
     const [selectTitle, setSelector] = useState(0)
     
@@ -12,9 +13,16 @@ const NotesContainer = () => {
         setSelector(note.id)
     }
 
+    const displayNotes = 
+        viewNotes 
+        ?
+        notes.map(note => <p key={note.id} id={note.id} class={selectTitle == note.id ? 'selected' : 'title'} onClick={()=> handleClick(note)}>{note.title}</p>)
+        :
+        null
+
     return(
         <div>
-            {notes.length > 0 ? notes.map(note => <p key={note.id} id={note.id} class={selectTitle == note.id ? 'selected' : 'title'} onClick={()=> handleClick(note)}>{note.title}</p>) : 'No Notes Yet!'}
+            {displayNotes}
         </div>
     )
 }
