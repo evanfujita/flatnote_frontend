@@ -25,9 +25,9 @@ class NoteForm extends React.Component{
     render(){
     
         return(
-            <form onSubmit={this.handleSubmit}>
-                <input type='text' name='title' placeholder='title' onChange={this.handleChange} /><br/>
-                <textarea rows='3' type='textarea' id='textarea' name='body' placeholder='content' onChange={this.handleChange} /><br/>
+            <form class='form' onSubmit={this.handleSubmit}>
+                <input class='form-field' type='text' name='title' placeholder='title' onChange={this.handleChange} /><br/>
+                <textarea class='form-field' rows='3' type='textarea' id='textarea' name='body' placeholder='content' onChange={this.handleChange} /><br/>
                 <input type='submit' />
             </form>
         )

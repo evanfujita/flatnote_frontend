@@ -126,5 +126,17 @@ li {
   padding: .5em;
   border-style: solid;
   border-width: 1px;
-  
+}
+
+.form {
+  border-style: solid;
+  border-width: 1px;
+  margin-top: 1em;
+  padding: 1em;
+}
+
+.form-field {
+  margin-right: 4em;
+  margin-top: 1em; 
+  width: 100%;
 }
