@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { createReqObj, postFetch, updateFetch } from '../../helpers/fetch'
-import { add, addNoteForm } from '../../actions/index'
+import { add, addNoteForm, updateNoteForm, update } from '../../actions/index'
 
 class NoteForm extends React.Component{
     state = {
@@ -16,7 +16,6 @@ class NoteForm extends React.Component{
 
     handleSubmit = event => {
         event.preventDefault()
-        
         if (this.props.selections.addNoteForm){
             const reqObj = createReqObj('POST', this.state)
             postFetch('notes', reqObj, this.props.add)
@@ -24,7 +23,8 @@ class NoteForm extends React.Component{
         } else if (this.props.selections.updateNoteForm){
             const reqObj = createReqObj('PATCH', this.state)
             const id = this.props.selections.note.id
-            updateFetch(`notes/${id}`, reqObj, this.props.add)
+            updateFetch(`notes/${id}`, reqObj, this.props.update)
+            this.props.updateNoteForm()
         }
         event.target.reset()
     }
@@ -50,7 +50,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     add,
-    addNoteForm
+    addNoteForm,
+    updateNoteForm,
+    update
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NoteForm)
