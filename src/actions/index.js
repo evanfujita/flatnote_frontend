@@ -43,3 +43,15 @@ export const update = item => {
         item
     }
 }
+
+export const viewNotes = () => {
+    return {
+        type: 'VIEW_NOTES'
+    }
+}
+
+export const viewTasks = () => {
+    return {
+        type: 'VIEW_TASKS'
+    }
+}

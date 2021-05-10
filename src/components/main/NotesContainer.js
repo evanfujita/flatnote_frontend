@@ -14,7 +14,6 @@ const NotesContainer = () => {
 
     return(
         <div>
-            <p class='header'>Notes</p>
             {notes.length > 0 ? notes.map(note => <p key={note.id} id={note.id} class={selectTitle == note.id ? 'selected' : 'title'} onClick={()=> handleClick(note)}>{note.title}</p>) : 'No Notes Yet!'}
         </div>
     )
