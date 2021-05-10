@@ -9,6 +9,7 @@ function App() {
   const user = useSelector(state => state.user)
   const selectedNote = useSelector(state => state.selections.note)
   const displayForm = useSelector(state => state.selections.addNoteForm)
+  const displayUpdateForm = useSelector(state => state.selections.updateNoteForm)
 
   return (
         <div>
@@ -22,7 +23,7 @@ function App() {
             <div class='second-column'>
               {user === 'FAIL' ? 'There was a problem' : null}
               {selectedNote ? <Note note={selectedNote} /> : null}
-              {displayForm ? <NoteForm type='add' /> : null}
+              {displayForm || displayUpdateForm ? <NoteForm /> : null}
             </div>
           </div>
         </div>

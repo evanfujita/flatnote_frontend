@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { remove } from '../../actions/index'
+import { updateNoteForm, remove } from '../../actions/index'
 import { deleteFetch } from '../../helpers/fetch'
 
 const Controls = props => {
@@ -13,7 +13,8 @@ const Controls = props => {
     }
 
     const handleEdit = event => {
-        
+
+        dispatch(updateNoteForm())
     }
 
     return (

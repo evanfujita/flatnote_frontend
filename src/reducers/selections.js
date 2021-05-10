@@ -1,4 +1,4 @@
-const selections = (state={note: null, addNoteForm: false}, action) => {
+const selections = (state={note: null, addNoteForm: false, updateNoteForm: false}, action) => {
     let newState
     switch(action.type){
     case 'SELECT_NOTE':
@@ -10,6 +10,11 @@ const selections = (state={note: null, addNoteForm: false}, action) => {
         return {
             ...state,
             addNoteForm: !state.addNoteForm
+        }
+        case 'UPDATE_NOTE_FORM':
+        return {
+            ...state,
+            updateNoteForm: !state.updateNoteForm
         }
     case 'LOGOUT_SUCCESS':
         return null

@@ -10,6 +10,12 @@ export const addNoteForm = () => {
         type: 'ADD_NOTE_FORM'
     }
 }
+
+export const updateNoteForm = () => {
+    return {
+        type: 'UPDATE_NOTE_FORM'
+    }
+}
  
 export const logout = () => {
     return {
