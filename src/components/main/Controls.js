@@ -12,9 +12,13 @@ const Controls = props => {
         dispatch(remove(item))
     }
 
+    const handleEdit = event => {
+console.log('asdf')
+    }
+
     return (
         <span class='controls'>
-            <li class='navbar-item' >edit</li>
+            <li class='navbar-item' onClick={handleEdit}>edit</li>
             <span class='red' onClick={handleDelete}>
                 <li class='navbar-item' >delete</li>
             </span>
