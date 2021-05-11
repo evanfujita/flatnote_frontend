@@ -1,7 +1,7 @@
 import React from 'react'
 import Controls from '../main/Controls'
 import { useSelector, useDispatch } from 'react-redux'
-import { logout, addNoteForm, viewNotes, viewTasks } from '../../actions/index'
+import { logout, addNoteForm, addTaskForm, viewNotes, viewTasks } from '../../actions/index'
 
 const LoggedIn = () => {
     const dispatch = useDispatch()
@@ -11,13 +11,14 @@ const LoggedIn = () => {
     const displayTasks = useSelector(state => state.selections.viewTasks)
     const notesClass = displayNotes ? 'selected-navbar-item' : 'navbar-item'
     const tasksClass = displayTasks ? 'selected-navbar-item' : 'navbar-item'
-    const addItem = displayNotes ? 'add note' : 'add task'
 
     return (
         <ul>
             <li class={notesClass} id='Notes' onClick={()=> dispatch(viewNotes())}>notes</li>
             <li class={tasksClass} id='Tasks' onClick={()=> dispatch(viewTasks())}>tasks</li>
-            <li class='navbar-item' id='addNote' onClick={()=> dispatch(addNoteForm())} >{addItem}</li>
+            {displayNotes ? <li class='navbar-item' id='addNote' onClick={()=> dispatch(addNoteForm())} >add note</li> : null}
+            {displayTasks ? <li class='navbar-item' id='addTask' onClick={()=> dispatch(addTaskForm())} >add task</li> : null}
+            
             {selectedNote ? <Controls resource={`notes/${selectedNote.id}`} item={selectedNote} /> : null}
             {selectedTask ? <Controls resource={`notes/${selectedTask.id}`} item={selectedTask} /> : null}
             <span class='positioned'>

@@ -29,6 +29,14 @@ const selections = (state={
             addNoteForm: !state.addNoteForm,
             updateNoteForm: false
         }
+
+    case 'ADD_TASK_FORM':
+        return {
+            ...state,
+            addTaskForm: !state.addTaskForm,
+            // updateNoteForm: false
+        }
+
     case 'UPDATE_NOTE_FORM':
         return {
             ...state,

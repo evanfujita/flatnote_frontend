@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './components/main/Navbar'
 import Item from './components/main/Item'
 import NoteForm from './components/forms/NoteForm'
+import TaskForm from './components/forms/TaskForm'
 import NotesContainer from './components/main/NotesContainer'
 import { useSelector } from 'react-redux'
 
@@ -9,7 +10,10 @@ function App() {
   const user = useSelector(state => state.user)
   const selectedNote = useSelector(state => state.selections.note)
   const selectedTask = useSelector(state => state.selections.task)
-  const displayForm = useSelector(state => state.selections.addNoteForm)
+  const displayNoteForm = useSelector(state => state.selections.addNoteForm)
+  const displayTaskForm = useSelector(state => state.selections.addTaskForm)
+  const viewNotes = useSelector(state => state.selections.viewNotes)
+  const viewTasks = useSelector(state => state.selections.viewTasks)
   const displayUpdateForm = useSelector(state => state.selections.updateNoteForm)
 
   return (
@@ -25,7 +29,8 @@ function App() {
               {user === 'FAIL' ? 'There was a problem' : null}
               {selectedNote ? <Item item={selectedNote} type='note' /> : null}
               {selectedTask ? <Item item={selectedTask} type='task' /> : null}
-              {displayForm || displayUpdateForm ? <NoteForm /> : null}
+              {displayNoteForm && viewNotes ? <NoteForm /> : null}
+              {displayTaskForm && viewTasks ? <TaskForm /> : null}
             </div>
           </div>
         </div>

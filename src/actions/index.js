@@ -18,6 +18,12 @@ export const addNoteForm = () => {
     }
 }
 
+export const addTaskForm = () => {
+    return {
+        type: 'ADD_TASK_FORM'
+    }
+}
+
 export const updateNoteForm = () => {
     return {
         type: 'UPDATE_NOTE_FORM'
