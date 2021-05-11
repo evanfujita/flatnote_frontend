@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { updateNoteForm } from '../../actions/index'
 import { removeNote } from '../../actions/notes'
 import { deleteFetch } from '../../helpers/fetch'
+import { completeTask } from '../../actions/tasks'
 
 const Controls = props => {
     const dispatch = useDispatch()
@@ -23,7 +24,7 @@ const Controls = props => {
     }
 
     const taskComplete = event => {
-        
+        dispatch(completeTask())
     }
 
     return (

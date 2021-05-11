@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { useSelector, useDispatch } from 'react-redux'
 import { selectNote, selectTask } from '../../actions/index'
 
@@ -10,9 +11,7 @@ const DisplayTitle = props => {
     const { item, type } = props
     
     const handleClick = item => {
-        
         const { type } = props
-        // debugger
         if(type === 'note'){
             dispatch(selectNote(item))
         } else {
@@ -26,6 +25,7 @@ const DisplayTitle = props => {
             onClick={()=> handleClick(item)}
             id={item.id} 
             >{item.title}
+            {type === 'task' && selectedTask.completed && selectedTask.id === item.id? 'complete!' : null}
         </p>    
         
     )

@@ -66,6 +66,15 @@ const selections = (state={
             viewNotes: false,
             viewTasks: !state.viewTasks
         }
+
+    case 'COMPLETE_TASK':
+        return {
+            ...state,
+            task: {
+                ...state.task,
+                completed: !state.task.completed
+            }
+        }
    
     default:
         return state

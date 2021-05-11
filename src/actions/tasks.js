@@ -11,3 +11,9 @@ export const removeTask = item => {
         item
     }
 }
+
+export const completeTask = () => {
+    return {
+        type: 'COMPLETE_TASK'
+    }
+}
