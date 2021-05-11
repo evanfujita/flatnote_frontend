@@ -1,10 +1,27 @@
-const selections = (state={viewNotes: true, viewTasks: false, note: 0, task: 0, addNoteForm: false, updateNoteForm: false}, action) => {
+const selections = (state={
+    viewNotes: true, 
+    viewTasks: false, 
+    note: 0, 
+    task: 0, 
+    addNoteForm: false, 
+    updateNoteForm: false}, 
+    action) => {
+    
     let newState
     switch(action.type){
     case 'SELECT_NOTE':
         return {
             ...state,
-            note: action.note}
+            note: action.note,
+            task: 0
+        }
+    
+    case 'SELECT_TASK':
+        return {
+            ...state,
+            note: 0,
+            task: action.task
+        }
     
     case 'ADD_NOTE_FORM':
         return {

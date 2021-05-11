@@ -1,7 +1,6 @@
 import React from 'react'
-import DisplayItem from './DisplayItem'
+import DisplayTitle from './DisplayTitle'
 import { useSelector } from 'react-redux'
-
 
 const NotesContainer = () => {
     const notes = useSelector(state => state.notes)
@@ -12,14 +11,14 @@ const NotesContainer = () => {
     const displayNotes = 
         viewNotes 
         ?
-        notes.map(note => <DisplayItem item={note} type='note' />)
+        notes.map(note => <DisplayTitle item={note} type='note' />)
         :
         null
 
     const displayTasks =
         viewTasks
         ?
-        tasks.map(task => <DisplayItem item={task} type='task' />)
+        tasks.map(task => <DisplayTitle item={task} type='task' />)
         :
         null
 

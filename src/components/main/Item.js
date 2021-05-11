@@ -1,12 +1,12 @@
 import React from 'react'
 
-const Note = props => {
-    const { note } = props
+const Item = props => {
+    const { item } = props
     return (
         <div class='container'>
-            {note.body}
+            {item.body}
         </div>
     )
 }
 
-export default Note
+export default Item

@@ -5,6 +5,13 @@ export const selectNote = note => {
     }
 }
 
+export const selectTask = task => {
+    return {
+        type: 'SELECT_TASK',
+        task
+    }
+}
+
 export const addNoteForm = () => {
     return {
         type: 'ADD_NOTE_FORM'
