@@ -10,24 +10,27 @@ const Controls = props => {
     
     const displayNotes = useSelector(state => state.selections.viewNotes)
     const editItem = displayNotes ? 'edit note' : 'edit task'
+    const task = useSelector(state => state.selections.task)
+    const viewTasks = useSelector(state => state.selections.viewTasks)
 
     const handleDelete = event => {
-        debugger
         deleteFetch(resource)
         dispatch(removeNote(item))
-    }
-    
-    const handleConfirmDelete = event => {
-
     }
 
     const handleEdit = event => {
         dispatch(updateNoteForm())
     }
 
+    const taskComplete = event => {
+        
+    }
+
     return (
         <span class='controls'>
             <li class='navbar-item' onClick={handleEdit}>{editItem}</li>
+            {viewTasks && task ? <li class='navbar-item' onClick={taskComplete}>mark complete</li> : null}
+
             <span class='red' onClick={handleDelete}>
                 <li class='navbar-item' >delete</li>
             </span>
