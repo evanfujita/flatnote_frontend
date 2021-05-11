@@ -29,7 +29,7 @@ const selections = (state={
             addNoteForm: !state.addNoteForm,
             updateNoteForm: false
         }
-        case 'UPDATE_NOTE_FORM':
+    case 'UPDATE_NOTE_FORM':
         return {
             ...state,
             addNoteForm: false,
@@ -39,6 +39,7 @@ const selections = (state={
         return {}
     
     case 'DELETE':
+        debugger
         return{
             ...state,
             note: null

@@ -23,8 +23,8 @@ function App() {
             </div>
             <div class='second-column'>
               {user === 'FAIL' ? 'There was a problem' : null}
-              {selectedNote ? <Item item={selectedNote} /> : null}
-              {selectedTask ? <Item item={selectedTask} /> : null}
+              {selectedNote ? <Item item={selectedNote} type='note' /> : null}
+              {selectedTask ? <Item item={selectedTask} type='task' /> : null}
               {displayForm || displayUpdateForm ? <NoteForm /> : null}
             </div>
           </div>

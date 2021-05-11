@@ -8,7 +8,7 @@ function tasks (state=null, action){
         case 'LOGOUT_SUCCESS':
             return {}
        
-        case 'ADD':
+        case 'ADD_TASK':
             updatedTasks = [...state, action.item]
             return updatedTasks
        
@@ -22,7 +22,7 @@ function tasks (state=null, action){
             })
             return updatedTasks
             
-        case 'DELETE':
+        case 'DELETE_TASK':
             updatedTasks = state.filter(task=> (task.id != action.item.id))
             return updatedTasks
         

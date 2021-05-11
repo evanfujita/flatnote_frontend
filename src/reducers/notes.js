@@ -7,7 +7,8 @@ function notes (state=null, action){
         case 'LOGOUT_SUCCESS':
             return {}
        
-        case 'ADD':
+        case 'ADD_NOTE':
+            
             updatedNotes = [...state, action.item]
             return updatedNotes
        
@@ -22,6 +23,7 @@ function notes (state=null, action){
             return updatedNotes
             
         case 'DELETE':
+            debugger
             updatedNotes = state.filter(note=> (note.id != action.item.id))
             return updatedNotes
         

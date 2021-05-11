@@ -9,10 +9,10 @@ const DisplayTitle = props => {
     const dispatch = useDispatch()
     const { item, type } = props
     
-
-
     const handleClick = item => {
+        
         const { type } = props
+        // debugger
         if(type === 'note'){
             dispatch(selectNote(item))
         } else {
@@ -22,11 +22,12 @@ const DisplayTitle = props => {
 
     return(
         <p 
-            class={type === 'note' && selectedNote.id === item.id || type === 'task' && selectedTask.id === item.id ? 'selected' : 'title'}
+            class={(type === 'note' && selectedNote.id === item.id) || (type === 'task' && selectedTask.id === item.id) ? 'selected' : 'title'}
             onClick={()=> handleClick(item)}
             id={item.id} 
             >{item.title}
         </p>    
+        
     )
 }
 

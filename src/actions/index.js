@@ -30,20 +30,6 @@ export const logout = () => {
     }
 }
 
-export const add = item => {
-    return {
-        type: 'ADD',
-        item
-    }
-}
-
-export const remove = item => {
-    return {
-        type: 'DELETE',
-        item
-    }
-}
-
 export const update = item => {
     return {
         type: 'UPDATE',
