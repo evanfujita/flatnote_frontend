@@ -22,7 +22,9 @@ export const postFetch = (resource, reqObj, reducer) => {
     fetch(`http://localhost:3000/${resource}`, reqObj)
     .then(resp => resp.json())
     .then(data => {
-        reducer(data)
+        if(reducer){
+            reducer(data)
+        }
     })
 }
 
@@ -46,8 +48,10 @@ export const updateFetch = (resource, reqObj, reducer) => {
     fetch(`http://localhost:3000/${resource}`, reqObj)
     .then(resp => resp.json())
     .then(data => {
-        debugger
-        reducer(data)
+        console.log(data)
+        if(reducer){
+            reducer(data)
+        }
     })
 }
 

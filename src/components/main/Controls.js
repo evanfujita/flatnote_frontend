@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateNoteForm } from '../../actions/index'
 import { removeNote } from '../../actions/notes'
-import { deleteFetch } from '../../helpers/fetch'
+import { deleteFetch, updateFetch, createReqObj } from '../../helpers/fetch'
 import { completeTask } from '../../actions/tasks'
 
 const Controls = props => {
@@ -20,11 +20,17 @@ const Controls = props => {
     }
 
     const handleEdit = event => {
+        debugger
         dispatch(updateNoteForm())
     }
 
     const taskComplete = event => {
+        const resource = `tasks/${task.id}`
+        const body = {completed: !task.completed}
+        const reqObj = createReqObj('PATCH', body)
+        updateFetch(resource, reqObj)
         dispatch(completeTask())
+
     }
 
     return (

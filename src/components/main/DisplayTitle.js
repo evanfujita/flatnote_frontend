@@ -3,7 +3,6 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectNote, selectTask } from '../../actions/index'
 
-
 const DisplayTitle = props => {
     const selectedNote = useSelector(state => state.selections.note)
     const selectedTask = useSelector(state => state.selections.task)
