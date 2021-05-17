@@ -5,6 +5,7 @@ import NoteForm from './components/forms/NoteForm'
 import TaskForm from './components/forms/TaskForm'
 import NotesContainer from './components/main/NotesContainer'
 import { useSelector } from 'react-redux'
+import DynamicForm from './components/forms/DynamicForm'
 
 function App() {
   const user = useSelector(state => state.user)
@@ -15,6 +16,7 @@ function App() {
   const viewNotes = useSelector(state => state.selections.viewNotes)
   const viewTasks = useSelector(state => state.selections.viewTasks)
   const displayUpdateForm = useSelector(state => state.selections.updateNoteForm)
+  const items = ['name', 'age', 'occupation', 'gender']
 
   return (
         <div>
@@ -26,11 +28,13 @@ function App() {
               {user && user.id ? <NotesContainer /> : null}
             </div>
             <div class='second-column'>
-              {user === 'FAIL' ? 'There was a problem' : null}
+              <DynamicForm items={items} />
+              
+              {/* {user === 'FAIL' ? 'There was a problem' : null}
               {selectedNote ? <Item item={selectedNote} type='note' /> : null}
               {selectedTask ? <Item item={selectedTask} type='task' /> : null}
               {displayNoteForm && viewNotes ? <NoteForm /> : null}
-              {displayTaskForm && viewTasks ? <TaskForm /> : null}
+              {displayTaskForm && viewTasks ? <TaskForm /> : null} */}
             </div>
           </div>
         </div>
