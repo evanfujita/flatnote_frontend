@@ -1,34 +1,25 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 
-class TaskForm extends React.Component {
-    state = {
-        user_id: this.props.user.id
-    }
+const TaskForm = props => {
+    const [state, setState] = useState({user_id: props.user.id})
 
-    handleChange = event => {
-        this.setState({
-            [event.target.name]: event.target.value
+    const user = useSelector(state => state.user)
+
+    const handleChange = event => {
+        setState({
+            ...state, [event.target.name]: event.target.value
         })
     }
     
-    render(){
-
-        return(
-            <form class='form' onSubmit={this.handleSubmit}>
-                <input class='form-field' type='text' name='title' placeholder='title' onChange={this.handleChange} /><br/>
-                <input class='form-field' type='text' name='body' placeholder='content' onChange={this.handleChange} /><br/><br/>
-                <input type='submit' value='create task' />
-            </form>
-        )
-    }
+    return(
+        <form class='form' onSubmit={this.handleSubmit}>
+            <input class='form-field' type='text' name='title' placeholder='title' onChange={handleChange} /><br/>
+            <input class='form-field' type='text' name='body' placeholder='content' onChange={handleChange} /><br/><br/>
+            <input type='submit' value='create task' />
+        </form>
+    )
 }
 
-const mapStateToProps = state => {
-    return {
-        user: state.user
-    }
-}
-
-export default connect(mapStateToProps)(TaskForm)
+export default TaskForm
