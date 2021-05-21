@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import LoginForm from '../forms/LoginForm'
 import RegisterForm from '../forms/RegisterForm'
-import { loginFetch, postFetch, createReqObj } from '../../helpers/fetch'
+import { createReqObj } from '../../helpers/fetch'
 import { loginAuth, loginFail } from '../../actions/user'
+import DynamicForm from '../forms//DynamicForm'
 
 const Login = props => {
     const { type } = props
@@ -19,11 +20,9 @@ const Login = props => {
     }
 
     const loginFetch = (reqObj) => {
-        // debugger
         fetch('http://localhost:3000/login', reqObj)
         .then(resp => resp.json())
         .then(user => {
-            // debugger
             if (user.id){dispatch(loginAuth(user))}
             if (user.error){loginFail()}
         })
@@ -40,16 +39,24 @@ const Login = props => {
     }
 
     const handleSubmit = event => {
+        debugger
         event.preventDefault()
         const user = state
         const reqObj = createReqObj('POST', {user: user})
         state.password_confirmation ? postFetch('users', reqObj, loginAuth) : loginFetch(reqObj, loginAuth, loginFail)
         event.target.reset()
     }
+
+    const items = [
+        {header: 'Username', type: 'text', name: 'username'}, 
+        {header: 'Password', type: 'password', name: 'password'},
+        {header: 'Password Confirmation', type: 'password', name: 'password_confirmation'}
+    ]
     
     return(
         <form onSubmit={handleSubmit}>
-            { type === 'login' ? <LoginForm handleChange={handleChange} /> : <RegisterForm handleChange={handleChange} /> }
+            <DynamicForm handleChange={handleChange} items={items} />
+            {/* { type === 'login' ? <LoginForm handleChange={handleChange} /> : <RegisterForm handleChange={handleChange} /> } */}
             <input type='submit' />
         </form>
     )
