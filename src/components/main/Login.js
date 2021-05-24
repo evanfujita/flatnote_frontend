@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import LoginForm from '../forms/LoginForm'
-import RegisterForm from '../forms/RegisterForm'
+// import LoginForm from '../forms/LoginForm'
+// import RegisterForm from '../forms/RegisterForm'
 import { createReqObj } from '../../helpers/fetch'
 import { loginAuth, loginFail } from '../../actions/user'
 import DynamicForm from '../forms//DynamicForm'
@@ -39,9 +39,9 @@ const Login = props => {
     }
 
     const handleSubmit = event => {
-        debugger
         event.preventDefault()
         const user = state
+        // debugger
         const reqObj = createReqObj('POST', {user: user})
         state.password_confirmation ? postFetch('users', reqObj, loginAuth) : loginFetch(reqObj, loginAuth, loginFail)
         event.target.reset()
