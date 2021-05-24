@@ -27,7 +27,7 @@ const DynamicForm = props => {
         }))
 
     return(
-        <form>
+        <form >
             {formFields}
             {/* <input type='submit' value='Submit' /> */}
         </form>

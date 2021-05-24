@@ -47,16 +47,21 @@ const Login = props => {
         event.target.reset()
     }
 
-    const items = [
+    const signupItems = [
         {header: 'Username', type: 'text', name: 'username'}, 
         {header: 'Password', type: 'password', name: 'password'},
         {header: 'Password Confirmation', type: 'password', name: 'password_confirmation'}
     ]
+
+    const loginItems = [
+        {header: 'Username', type: 'text', name: 'username'}, 
+        {header: 'Password', type: 'password', name: 'password'},
+    ]
+
     
     return(
-        <form onSubmit={handleSubmit}>
-            <DynamicForm handleChange={handleChange} items={items} />
-            {/* { type === 'login' ? <LoginForm handleChange={handleChange} /> : <RegisterForm handleChange={handleChange} /> } */}
+        <form class='dynamic-form' onSubmit={handleSubmit}>
+            <DynamicForm handleChange={handleChange} items={type==='login' ? loginItems : signupItems} />
             <input type='submit' />
         </form>
     )

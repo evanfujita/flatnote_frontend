@@ -149,6 +149,10 @@ input {
   width: 100%;
 }
 
+.dynamic-form {
+  width: 200px;
+}
+
 .delete-popup {
   visibility: hidden;
   z-index: 1;
