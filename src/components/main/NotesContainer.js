@@ -8,25 +8,14 @@ const NotesContainer = () => {
     const viewNotes = useSelector(state => state.selections.viewNotes)
     const viewTasks = useSelector(state => state.selections.viewTasks)
 
-    const displayNotes = 
-        viewNotes 
-        ?
-        notes.map(note => <DisplayTitle item={note} type='note' />)
-        :
-        null
-
-    const displayTasks =
-        viewTasks
-        ?
-        tasks.map(task => <DisplayTitle item={task} type='task' />)
-        :
-        null
+    const displayNotes = viewNotes ? notes.map(note => <DisplayTitle item={note} type='note' />) : null
+    const displayTasks = viewTasks ? tasks.map(task => <DisplayTitle item={task} type='task' />) : null
 
     return(
-        <div>
+        <>
             {displayNotes}
             {displayTasks}
-        </div>
+        </>
     )
 }
 

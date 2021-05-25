@@ -3,13 +3,17 @@
 }
 
 .App-header{
-  /* padding-left: 2em; */
   background-color: #282c34;
   max-height: 20vh;
   display: flex;
   flex-direction: column;
   color: white;
 }
+
+.title, .selected {
+  border-radius: 4px;
+}
+
 
 .main {
   padding-top: 2em;
@@ -22,15 +26,9 @@
   color: white;
 }
 
-.note {
-  font-family: 'Roboto', sans-serif;
-}
-
-.noteContainer {
-  flex-direction: column;
-  width: '200px';
-  justify-content: left;
-  font-family: 'Roboto', sans-serif;
+.container {
+  background-color: rgb(255, 255, 255, .4);
+  border-radius: 4px;
 }
 
 .navbar-item, .selected-navbar-item {
@@ -87,6 +85,7 @@ li {
 .container {
   border-style: solid;
   border-width: 1px;
+  border-radius: 4px;
   padding: 3em;
   align-items: center;
   overflow-wrap: break-word;
@@ -124,7 +123,6 @@ li {
   border-width: 1px;
   margin-top: 1em;
   padding: 1em;
-  
 }
 
 .login-form {

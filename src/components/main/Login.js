@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-// import LoginForm from '../forms/LoginForm'
-// import RegisterForm from '../forms/RegisterForm'
 import { createReqObj } from '../../helpers/fetch'
 import { loginAuth, loginFail } from '../../actions/user'
 import DynamicForm from '../forms//DynamicForm'
@@ -9,6 +7,7 @@ import DynamicForm from '../forms//DynamicForm'
 const Login = props => {
     const { type } = props
     const [state, setState] = useState({})
+    const [apple] = useState (['apple'])
     
     const dispatch = useDispatch()
     
@@ -58,7 +57,6 @@ const Login = props => {
         {header: 'Password', type: 'password', name: 'password'},
     ]
 
-    
     return(
         <form class='dynamic-form' onSubmit={handleSubmit}>
             <DynamicForm handleChange={handleChange} items={type==='login' ? loginItems : signupItems} />
