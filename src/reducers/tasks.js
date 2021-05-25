@@ -2,7 +2,6 @@ function tasks (state=null, action){
     let updatedTasks
     switch(action.type){
         case 'LOGIN_SUCCESS':
-            
             return action.user.tasks
     
         case 'LOGOUT_SUCCESS':
@@ -12,7 +11,7 @@ function tasks (state=null, action){
             updatedTasks = [...state, action.item]
             return updatedTasks
        
-        case 'UPDATE':
+        case 'UPDATE_TASK':
             updatedTasks = state.map(task => {
                 if (task.id === action.item.id){
                     return action.item

@@ -12,8 +12,9 @@ export const removeTask = item => {
     }
 }
 
-export const completeTask = () => {
+export const updateTask = item => {
     return {
-        type: 'COMPLETE_TASK'
+        type: 'UPDATE_TASK',
+        item
     }
 }

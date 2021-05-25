@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { updateNoteForm } from '../../actions/index'
 import { removeNote } from '../../actions/notes'
 import { deleteFetch, updateFetch, createReqObj } from '../../helpers/fetch'
-import { completeTask } from '../../actions/tasks'
+import { updateTask } from '../../actions/tasks'
 
 const Controls = props => {
     const dispatch = useDispatch()
@@ -24,13 +24,19 @@ const Controls = props => {
         dispatch(updateNoteForm())
     }
 
+    const updateFetch = (resource, reqObj) => {
+    fetch(`http://localhost:3000/${resource}`, reqObj)
+    .then(resp => resp.json())
+    .then(task => {
+        dispatch(updateTask(task))
+    })
+    }
+
     const taskComplete = event => {
         const resource = `tasks/${task.id}`
         const body = {completed: !task.completed}
         const reqObj = createReqObj('PATCH', body)
         updateFetch(resource, reqObj)
-        dispatch(completeTask())
-
     }
 
     return (

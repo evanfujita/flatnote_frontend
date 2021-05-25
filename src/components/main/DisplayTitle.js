@@ -23,8 +23,8 @@ const DisplayTitle = props => {
             class={(type === 'note' && selectedNote.id === item.id) || (type === 'task' && selectedTask.id === item.id) ? 'selected' : 'title'}
             onClick={()=> handleClick(item)}
             id={item.id} 
-            >{item.title}
-            {type === 'task' && selectedTask.completed && selectedTask.id === item.id? 'complete!' : null}
+            >
+            {item.completed ? <s> {item.title} </s> : item.title}
         </p>    
         
     )

@@ -67,13 +67,19 @@ const selections = (state={
             viewTasks: !state.viewTasks
         }
 
-    case 'COMPLETE_TASK':
+    // case 'COMPLETE_TASK':
+    //     return {
+    //         ...state,
+    //         task: {
+    //             ...state.task,
+    //             completed: !state.task.completed
+    //         }
+    //     }
+
+    case 'UPDATE_TASK':
         return {
             ...state,
-            task: {
-                ...state.task,
-                completed: !state.task.completed
-            }
+            task: action.item
         }
    
     default:
