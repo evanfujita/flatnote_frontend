@@ -1,11 +1,12 @@
 import './App.css';
-import Navbar from './components/main/Navbar'
 import Item from './components/main/Item'
 import NoteForm from './components/forms/NoteForm'
 import TaskForm from './components/forms/TaskForm'
 import NotesContainer from './components/main/NotesContainer'
 import { useSelector } from 'react-redux'
 import DynamicForm from './components/forms/DynamicForm'
+import LoggedIn from './components/navbar/LoggedIn'
+import LoggedOut from './components/navbar/LoggedOut'
 
 function App() {
   const user = useSelector(state => state.user)
@@ -22,7 +23,7 @@ function App() {
   return (
         <div>
           <div class='App-header'>
-            <Navbar />
+            {user && user.id ? <LoggedIn /> : <LoggedOut />}
           </div>
           <div class='main'>
             <div class='first-column'>
