@@ -9,19 +9,28 @@ const NoteForm = () => {
     const selections = useSelector(state => state.selections)
     const dispatch = useDispatch()
     
-    const [state, setState] = useState('')
+    const [state, setState] = useState({user_id: user.id})
 
     const handleChange = event => {
         const item = {...state, [event.target.name]: event.target.value}
         setState(item)
     }
 
+    const postFetch = (reqObj) => {
+        fetch('http://localhost:3000/notes', reqObj)
+        .then(resp => resp.json())
+        .then(note => {
+            debugger
+            dispatch(addNote(note))
+        })
+    }
+
     const handleSubmit = event => {
         event.preventDefault()
         if (selections.addNoteForm){
+            // debugger
             const reqObj = createReqObj('POST', state)
-            postFetch('notes', reqObj, addNote)
-            dispatch(addNoteForm())
+            postFetch(reqObj)
         } else if (selections.updateNoteForm){
             const reqObj = createReqObj('PATCH', state)
             const id = selections.note.id
@@ -32,9 +41,9 @@ const NoteForm = () => {
     }
     
     return(
-        <form class='form' onSubmit={handleSubmit}>
+        <form class='container' onSubmit={handleSubmit}>
             <input class='form-field' type='text' name='title' placeholder='title' onChange={handleChange} /><br/>
-            <textarea class='form-field' rows='3' type='textarea' id='textarea' name='body' placeholder='content' onChange={handleChange} /><br/>
+            <input class='form-field' type='text' id='textarea' name='body' placeholder='content' onChange={handleChange} /><br/><br/>
             <input type='submit' />
         </form>
     )
