@@ -34,7 +34,7 @@ function App() {
               {note ? <Item item={note} type='note' /> : null}
               {task ? <Item item={task} type='task' /> : null}
               {addNoteForm && viewNotes ? <NoteForm /> : null}
-              {updateNoteForm ? <Edit /> : null}
+              <Edit />
               {/* {displayTaskForm && viewTasks ? <DynamicForm items={tasksItems} /> : null} */}
             </div>
           </div>

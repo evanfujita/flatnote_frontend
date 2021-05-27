@@ -159,3 +159,7 @@ input {
   visibility: visible;
 }
 
+.form-span {
+  margin-left: 10%;
+  margin-top: 10%;
+}
