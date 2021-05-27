@@ -4,15 +4,18 @@ import { removeNote } from '../../actions/notes'
 import { deleteFetch, updateFetch, createReqObj } from '../../helpers/fetch'
 import { updateNoteForm, updateTaskForm } from '../../actions/index'
 import { updateTask } from '../../actions/tasks'
+import selections from '../../reducers/selections'
 
 const Controls = props => {
     const dispatch = useDispatch()
     const { item, resource } = props
     
     const displayNotes = useSelector(state => state.selections.viewNotes)
-    const editItem = displayNotes ? 'edit note' : 'edit task'
+    const editItemButtonDisplay = displayNotes ? 'edit note' : 'edit task'
     const task = useSelector(state => state.selections.task)
     const viewTasks = useSelector(state => state.selections.viewTasks)
+    const noteForm = useSelector(state => state.selections.updateNoteForm)
+    const taskForm = useSelector(state => state.selections.updateTaskForm)
 
     const handleDelete = event => {
         deleteFetch(resource)
@@ -20,9 +23,7 @@ const Controls = props => {
     }
 
     const handleEdit = event => {
-        
-        dispatch(updateNoteForm())
-        dispatch(updateTaskForm())
+        noteForm ? dispatch(updateNoteForm()) : dispatch(updateTaskForm())
     }
 
     const updateFetch = (resource, reqObj) => {
@@ -42,7 +43,7 @@ const Controls = props => {
 
     return (
         <span class='controls'>
-            <li class='navbar-item' onClick={handleEdit}>{editItem}</li>
+            <li class='navbar-item' onClick={handleEdit}>{editItemButtonDisplay}</li>
             {viewTasks && task ? <li class='navbar-item' onClick={taskComplete}>mark complete</li> : null}
 
             <span class='red' onClick={handleDelete}>
