@@ -3,15 +3,15 @@ import { useSelector, useDispatch } from 'react-redux'
 
 const Edit = props => {
 
-    const { updateNoteForm, updateTaskForm } = useSelector(state => state.selections)
-    const type = updateNoteForm ? updateNoteForm : updateTaskForm
+    // const { updateNoteForm, updateTaskForm } = useSelector(state => state.selections)
+    // const type = updateNoteForm ? updateNoteForm : updateTaskForm
 
     return (
-        updateNoteForm || updateTaskForm ?
+        // updateNoteForm || updateTaskForm ?
         <div>
-
+            Hellos
         </div>
-        : null
+        // : null
     )
 }
 

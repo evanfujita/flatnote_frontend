@@ -12,9 +12,9 @@ const Controls = props => {
     const displayNotes = useSelector(state => state.selections.viewNotes)
     const editItemButtonDisplay = displayNotes ? 'edit note' : 'edit task'
     const task = useSelector(state => state.selections.task)
-    const viewTasks = useSelector(state => state.selections.viewTasks)
-    const noteForm = useSelector(state => state.selections.updateNoteForm)
-    const taskForm = useSelector(state => state.selections.updateTaskForm)
+    const { viewNotes, viewTasks } = useSelector(state => state.selections)
+    // const noteForm = useSelector(state => state.selections.updateNoteForm)
+    // const taskForm = useSelector(state => state.selections.updateTaskForm)
 
     const handleDelete = event => {
         deleteFetch(resource)
@@ -22,7 +22,8 @@ const Controls = props => {
     }
 
     const handleEdit = event => {
-        noteForm ? dispatch(updateNoteForm()) : dispatch(updateTaskForm())
+        // debugger
+         viewNotes ? dispatch(updateNoteForm()) : dispatch(updateTaskForm())
     }
 
     const updateFetch = (resource, reqObj) => {

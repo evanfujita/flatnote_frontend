@@ -20,7 +20,6 @@ const NoteForm = () => {
         fetch('http://localhost:3000/notes', reqObj)
         .then(resp => resp.json())
         .then(note => {
-            debugger
             dispatch(addNote(note))
         })
     }
@@ -28,14 +27,13 @@ const NoteForm = () => {
     const handleSubmit = event => {
         event.preventDefault()
         if (selections.addNoteForm){
-            // debugger
             const reqObj = createReqObj('POST', state)
             postFetch(reqObj)
-        } else if (selections.updateNoteForm){
-            const reqObj = createReqObj('PATCH', state)
-            const id = selections.note.id
-            updateFetch(`notes/${id}`, reqObj, update)
-            dispatch(updateNoteForm())
+        // } else if (selections.updateNoteForm){
+        //     const reqObj = createReqObj('PATCH', state)
+        //     const id = selections.note.id
+        //     updateFetch(`notes/${id}`, reqObj, update)
+        //     dispatch(updateNoteForm())
         }
         event.target.reset()
     }

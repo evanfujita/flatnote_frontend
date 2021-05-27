@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import DynamicForm from './components/forms/DynamicForm'
 import LoggedIn from './components/navbar/LoggedIn'
 import LoggedOut from './components/navbar/LoggedOut'
+import Edit from './components/main/Edit'
 
 function App() {
   const user = useSelector(state => state.user)
@@ -33,6 +34,7 @@ function App() {
               {note ? <Item item={note} type='note' /> : null}
               {task ? <Item item={task} type='task' /> : null}
               {addNoteForm && viewNotes ? <NoteForm /> : null}
+              {updateNoteForm ? <Edit /> : null}
               {/* {displayTaskForm && viewTasks ? <DynamicForm items={tasksItems} /> : null} */}
             </div>
           </div>
