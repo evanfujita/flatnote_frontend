@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { updateNoteForm } from '../../actions/index'
 import { removeNote } from '../../actions/notes'
 import { deleteFetch, updateFetch, createReqObj } from '../../helpers/fetch'
+import { updateNoteForm, updateTaskForm } from '../../actions/index'
 import { updateTask } from '../../actions/tasks'
 
 const Controls = props => {
@@ -20,8 +20,9 @@ const Controls = props => {
     }
 
     const handleEdit = event => {
-        debugger
+        
         dispatch(updateNoteForm())
+        dispatch(updateTaskForm())
     }
 
     const updateFetch = (resource, reqObj) => {

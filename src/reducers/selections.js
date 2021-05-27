@@ -4,7 +4,9 @@ const selections = (state={
     note: 0, 
     task: 0, 
     addNoteForm: false, 
-    updateNoteForm: false}, 
+    updateNoteForm: false,
+    addTaskForm: false, 
+    updateTaskForm: false},
     action) => {
     
     let newState
@@ -43,6 +45,14 @@ const selections = (state={
             addNoteForm: false,
             updateNoteForm: !state.updateNoteForm
         }
+
+    case 'UPDATE_TASK_FORM':
+    return {
+        ...state,
+        addTaskForm: false,
+        updateTaskForm: !state.updateTaskForm
+    }
+
     case 'LOGOUT_SUCCESS':
         return {}
     

@@ -29,6 +29,12 @@ export const updateNoteForm = () => {
         type: 'UPDATE_NOTE_FORM'
     }
 }
+
+export const updateTaskForm = () => {
+    return {
+        type: 'UPDATE_TASK_FORM'
+    }
+}
  
 export const logout = () => {
     return {
