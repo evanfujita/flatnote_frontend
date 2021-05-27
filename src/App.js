@@ -10,13 +10,8 @@ import LoggedOut from './components/navbar/LoggedOut'
 
 function App() {
   const user = useSelector(state => state.user)
-  const selectedNote = useSelector(state => state.selections.note)
-  const selectedTask = useSelector(state => state.selections.task)
-  const displayNoteForm = useSelector(state => state.selections.addNoteForm)
-  const displayTaskForm = useSelector(state => state.selections.addTaskForm)
-  const viewNotes = useSelector(state => state.selections.viewNotes)
-  const viewTasks = useSelector(state => state.selections.viewTasks)
-  const displayUpdateForm = useSelector(state => state.selections.updateNoteForm)
+  const { note, task, addNoteForm, addTaskForm, viewNotes, viewTasks, updateNoteForm } = useSelector(state => state.selections)
+
   const notesItems = [
     {header: 'Title', name: 'title', type: 'text'}, 
     {header: 'Content', name: 'content', type: 'textarea'}
@@ -35,9 +30,9 @@ function App() {
             </div>
             <div class='second-column'>
               {user === 'FAIL' ? 'There was a problem' : null}
-              {selectedNote ? <Item item={selectedNote} type='note' /> : null}
-              {selectedTask ? <Item item={selectedTask} type='task' /> : null}
-              {displayNoteForm && viewNotes ? <NoteForm /> : null}
+              {note ? <Item item={note} type='note' /> : null}
+              {task ? <Item item={task} type='task' /> : null}
+              {addNoteForm && viewNotes ? <NoteForm /> : null}
               {/* {displayTaskForm && viewTasks ? <DynamicForm items={tasksItems} /> : null} */}
             </div>
           </div>

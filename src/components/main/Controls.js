@@ -4,7 +4,6 @@ import { removeNote } from '../../actions/notes'
 import { deleteFetch, updateFetch, createReqObj } from '../../helpers/fetch'
 import { updateNoteForm, updateTaskForm } from '../../actions/index'
 import { updateTask } from '../../actions/tasks'
-import selections from '../../reducers/selections'
 
 const Controls = props => {
     const dispatch = useDispatch()
