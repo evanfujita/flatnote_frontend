@@ -6,7 +6,7 @@ import { addNote } from '../../actions/notes'
 
 const NoteForm = () => {
     const user = useSelector(state => state.user)
-    const selections = useSelector(state => state.selections)
+    const { addNoteForm, updateNoteform, viewNotes } = useSelector(state => state.selections)
     const dispatch = useDispatch()
     
     const [state, setState] = useState({user_id: user.id})
@@ -26,10 +26,10 @@ const NoteForm = () => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        if (selections.addNoteForm){
+        if (addNoteForm){
             const reqObj = createReqObj('POST', state)
             postFetch(reqObj)
-        // } else if (selections.updateNoteForm){
+        // } else if (updateNoteForm){
         //     const reqObj = createReqObj('PATCH', state)
         //     const id = selections.note.id
         //     updateFetch(`notes/${id}`, reqObj, update)
@@ -39,11 +39,13 @@ const NoteForm = () => {
     }
     
     return(
+    
         <form class='container' onSubmit={handleSubmit}>
             <input class='form-field' type='text' name='title' placeholder='title' onChange={handleChange} /><br/>
             <input class='form-field' type='text' id='textarea' name='body' placeholder='content' onChange={handleChange} /><br/><br/>
             <input type='submit' />
         </form>
+
     )
 }
 
