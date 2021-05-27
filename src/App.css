@@ -89,7 +89,7 @@ li {
   overflow-wrap: break-word;
 }
 
-.title:hover {
+.title:hover, .navbar-item:hover {
   color: orange;
   cursor: pointer;
 }

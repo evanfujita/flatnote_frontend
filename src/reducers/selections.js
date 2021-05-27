@@ -56,6 +56,7 @@ const selections = (state={
     case 'VIEW_NOTES':
         return {
             ...state,
+            task: 0,
             viewNotes: !state.viewNotes,
             viewTasks: false
         }
@@ -63,18 +64,10 @@ const selections = (state={
     case 'VIEW_TASKS':
         return {
             ...state,
+            note: 0,
             viewNotes: false,
             viewTasks: !state.viewTasks
         }
-
-    // case 'COMPLETE_TASK':
-    //     return {
-    //         ...state,
-    //         task: {
-    //             ...state.task,
-    //             completed: !state.task.completed
-    //         }
-    //     }
 
     case 'UPDATE_TASK':
         return {

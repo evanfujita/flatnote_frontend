@@ -17,7 +17,11 @@ function App() {
   const viewNotes = useSelector(state => state.selections.viewNotes)
   const viewTasks = useSelector(state => state.selections.viewTasks)
   const displayUpdateForm = useSelector(state => state.selections.updateNoteForm)
-  const notesItems = [{header: 'Title', name: 'title', type: 'text'}, {header: 'Content', name: 'content', type: 'textarea'}]
+  const notesItems = [
+    {header: 'Title', name: 'title', type: 'text'}, 
+    {header: 'Content', name: 'content', type: 'textarea'}
+  ]
+  
   // const tasksItems = ['title', 'content']
 
   return (
@@ -33,7 +37,7 @@ function App() {
               {user === 'FAIL' ? 'There was a problem' : null}
               {selectedNote ? <Item item={selectedNote} type='note' /> : null}
               {selectedTask ? <Item item={selectedTask} type='task' /> : null}
-              {displayNoteForm && viewNotes ? <NoteForm  /> : null}
+              {displayNoteForm && viewNotes ? <NoteForm /> : null}
               {/* {displayTaskForm && viewTasks ? <DynamicForm items={tasksItems} /> : null} */}
             </div>
           </div>
