@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { createReqObj, postFetch, updateFetch } from '../../helpers/fetch'
-import { addNoteForm, updateNoteForm, update } from '../../actions/index'
+import { createReqObj } from '../../helpers/fetch'
 import { addNote } from '../../actions/notes'
 
 const NoteForm = () => {
     const user = useSelector(state => state.user)
-    const { addNoteForm, updateNoteform, viewNotes } = useSelector(state => state.selections)
+    const { addNoteForm } = useSelector(state => state.selections)
     const dispatch = useDispatch()
     
     const [state, setState] = useState({user_id: user.id})

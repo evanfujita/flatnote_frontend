@@ -5,7 +5,7 @@ import { logout, addNoteForm, addTaskForm, viewNotes, viewTasks } from '../../ac
 
 const LoggedIn = () => {
     const dispatch = useDispatch()
-    const selectedNote = useSelector(state => state.selections.note)
+    const { note, task } = useSelector(state => state.selections)
     const selectedTask = useSelector(state => state.selections.task)
     const displayNotes = useSelector(state => state.selections.viewNotes)
     const displayTasks = useSelector(state => state.selections.viewTasks)
@@ -19,8 +19,8 @@ const LoggedIn = () => {
             {displayNotes ? <li class='navbar-item' id='addNote' onClick={()=> dispatch(addNoteForm())} >add note</li> : null}
             {displayTasks ? <li class='navbar-item' id='addTask' onClick={()=> dispatch(addTaskForm())} >add task</li> : null}
             
-            {selectedNote ? <Controls resource={`notes/${selectedNote.id}`} item={selectedNote} /> : null}
-            {selectedTask ? <Controls resource={`notes/${selectedTask.id}`} item={selectedTask} /> : null}
+            {note ? <Controls resource={`notes/${note.id}`} item={note} /> : null}
+            {task ? <Controls resource={`notes/${task.id}`} item={task} /> : null}
             <span class='positioned'>
                 <li class='navbar-item' onClick={()=> dispatch(logout())}>logout</li>
             </span>

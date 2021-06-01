@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 
 const DynamicForm = props => {
     //local state
-    // const [state, setState] = useState('')
-    // const handleChange = event => {
-    //     const change = {...state, [event.target.name]: event.target.value}
-    //     setState(change)
-    // }
-    const { items, handleChange } = props
+    const [state, setState] = useState('')
+    
+    const handleChange = event => {
+        const change = {...state, [event.target.name]: event.target.value}
+        setState(change)
+    }
+    
+    const { items, handleSubmit } = props
 
     const formFields = items.map((item =>
         {
@@ -28,9 +30,9 @@ const DynamicForm = props => {
         }))
 
     return(
-        <form>
+        <form class='dynamic-form' onSubmit={(e)=> handleSubmit(e, state)}>
             {formFields}
-            {/* <input type='submit' value='Submit' /> */}
+            <input type='submit' value='Submit' />
         </form>
     )
 }

@@ -3,7 +3,7 @@ import DisplayTitle from './DisplayTitle'
 import { useSelector } from 'react-redux'
 
 const NotesContainer = () => {
-    const { user, notes, tasks } = useSelector(state => state.notes)
+    const { user, notes, tasks } = useSelector(state => state)
     const { viewNotes, viewTasks } = useSelector(state => state.selections)
 
     const displayNotes = viewNotes ? notes.map(note => <DisplayTitle item={note} type='note' />) : null

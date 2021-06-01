@@ -5,18 +5,13 @@ import { loginAuth, loginFail } from '../../actions/user'
 import DynamicForm from '../forms//DynamicForm'
 
 const Login = props => {
+    
     const { type } = props
-    const [state, setState] = useState({})
-    const [apple] = useState (['apple'])
     
+    //state
+    
+    //methods
     const dispatch = useDispatch()
-    
-    const handleChange = event => {
-        setState({
-            ...state,
-            [event.target.name]: event.target.value
-        })
-    }
 
     const loginFetch = (reqObj) => {
         fetch('http://localhost:3000/login', reqObj)
@@ -27,25 +22,23 @@ const Login = props => {
         })
     }
     
-    const postFetch = (resource, reqObj, reducer) => {
-        fetch(`http://localhost:3000/${resource}`, reqObj)
+    const postFetch = (reqObj) => {
+        fetch('http://localhost:3000/users', reqObj)
         .then(resp => resp.json())
         .then(data => {
-            if(reducer){
-                reducer(data)
-            }
+                dispatch(loginAuth(data))
         })
     }
 
-    const handleSubmit = event => {
+    const handleSubmit = (event, state) => {
         event.preventDefault()
         const user = state
-        // debugger
         const reqObj = createReqObj('POST', {user: user})
-        state.password_confirmation ? postFetch('users', reqObj, loginAuth) : loginFetch(reqObj, loginAuth, loginFail)
+        user.password_confirmation ? postFetch(reqObj) : loginFetch(reqObj)
         event.target.reset()
     }
 
+    //data to pass to dynamic form fields
     const signupItems = [
         {header: 'Username', type: 'text', name: 'username'}, 
         {header: 'Password', type: 'password', name: 'password'},
@@ -58,10 +51,9 @@ const Login = props => {
     ]
 
     return(
-        <form class='dynamic-form' onSubmit={handleSubmit}>
-            <DynamicForm handleChange={handleChange} items={type==='login' ? loginItems : signupItems} />
-            <input type='submit' />
-        </form>
+        
+            <DynamicForm handleSubmit={handleSubmit} items={type==='login' ? loginItems : signupItems} />
+        
     )
 }
 
