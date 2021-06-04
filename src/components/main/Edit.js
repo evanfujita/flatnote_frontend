@@ -21,14 +21,14 @@ const Edit = props => {
         note && updateNoteForm || task && updateTaskForm ?
         <form onSubmit={handleSubmit}>
             <span class='form-span'>
-                <label>Title</label>
-                <input type='text' name='title' placeholder={note.title || task.title} onChange={handleChange}></input>
+                <label class='form-label'>Title</label>
+                <input class='form-span-input' type='text' name='title' placeholder={note.title || task.title} onChange={handleChange}></input>
             </span>
             <span class='form-span'>
-                <label>Content</label>
-                <input type='text' name='body' placeholder={note.body || task.body} onChange={handleChange}></input>
+                <label class='form-label'>Content</label>
+                <input class='form-span-input' type='text' name='body' placeholder={note.body || task.body} onChange={handleChange}></input>
             </span>
-            <input type='submit' value='edit button' />
+            <input class='form-button' type='submit' value='edit button' />
         </form>
         : null
     )

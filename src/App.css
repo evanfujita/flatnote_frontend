@@ -62,8 +62,7 @@ li {
 }
 
 .first-column{
-  margin-left: 2em;
-  margin-right: 2em;
+  margin: 0 2em;
   float: left;
   width: 25%;
 }
@@ -76,12 +75,12 @@ li {
   overflow-wrap: normal;
 }
 
-.first-column > p {
+.first-column p {
   text-align: center;
 }
 
 .container {
-  border-style: solid;
+  border: solid 1px;
   border-width: 1px;
   border-radius: 4px;
   padding: 3em;
@@ -117,8 +116,7 @@ li {
 }
 
 .form {
-  border-style: solid;
-  border-width: 1px;
+  border-style: solid 1px;
   margin-top: 1em;
   padding: 1em;
 }
@@ -140,9 +138,10 @@ input {
 }
 
 .form-field {
+  display: block;
   margin-right: 4em;
   margin-top: 1em; 
-  width: 100%;
+  text-align: center;
 }
 
 .dynamic-form {
@@ -160,6 +159,20 @@ input {
 }
 
 .form-span {
-  margin-left: 10%;
-  margin-top: 10%;
+  display: block;
+  margin-top: 1em;
+  text-align: center;
+
+}
+
+.form-label {
+  display: block;
+}
+
+.form-span-input {
+  width: 60%;
+}
+
+.form-button {
+  margin-top: 2em;
 }

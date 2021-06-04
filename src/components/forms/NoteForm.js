@@ -7,7 +7,6 @@ const NoteForm = () => {
     const user = useSelector(state => state.user)
     const { addNoteForm } = useSelector(state => state.selections)
     const dispatch = useDispatch()
-    
     const [state, setState] = useState({user_id: user.id})
 
     const handleChange = event => {
