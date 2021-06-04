@@ -39,9 +39,16 @@ const NoteForm = () => {
     return(
     
         <form class='container' onSubmit={handleSubmit}>
-            <input class='form-field' type='text' name='title' placeholder='title' onChange={handleChange} /><br/>
-            <input class='form-field' type='text' id='textarea' name='body' placeholder='content' onChange={handleChange} /><br/><br/>
-            <input type='submit' />
+
+            <span class='form-span'>
+                <label class='form-label'>Title</label>    
+                <input class='form-span-input' type='text' name='title' placeholder='title' onChange={handleChange} />
+            </span>
+            <span class='form-span'>
+                <label class='form-label'>Content</label>    
+                <input class='form-span-input' type='text' id='textarea' name='body' placeholder='content' onChange={handleChange} />
+            </span>    
+                <input class='form-button' type='submit' value='create note' />
         </form>
 
     )
