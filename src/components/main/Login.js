@@ -8,8 +8,6 @@ const Login = props => {
     
     const { type } = props
     
-    //state
-    
     //methods
     const dispatch = useDispatch()
 

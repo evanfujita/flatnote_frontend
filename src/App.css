@@ -24,11 +24,6 @@
   color: white;
 }
 
-.container {
-  background-color: rgb(255, 255, 255, .4);
-  border-radius: 4px;
-}
-
 .navbar-item, .selected-navbar-item {
   list-style-type: none;
   margin-right: .5em;
@@ -81,7 +76,6 @@ li {
 
 .container {
   border: solid 1px;
-  border-width: 1px;
   border-radius: 4px;
   padding: 3em;
   align-items: center;
@@ -145,8 +139,9 @@ input {
 }
 
 .dynamic-form {
-  width: 200px;
-  margin-top: 20px;
+  text-align: center;
+  width: 400px;
+  margin-top: 30px;
 }
 
 .delete-popup {
@@ -162,7 +157,6 @@ input {
   display: block;
   margin-top: 1em;
   text-align: center;
-
 }
 
 .form-label {
@@ -171,6 +165,7 @@ input {
 
 .form-span-input {
   width: 60%;
+  text-align: center;
 }
 
 .form-button {

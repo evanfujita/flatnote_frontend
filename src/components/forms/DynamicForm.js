@@ -15,24 +15,24 @@ const DynamicForm = props => {
         {
         const { header, type, name } = item 
         return(
-            <>
-                <label>{item.header}</label>
+            <span class='form-span'>
+                <label class='form-label'>{item.header}</label>
                 <input 
                     key={header} 
-                    class='form-field' 
+                    class='form-span-input' 
                     type={type} 
                     name={name} 
                     placeholder={header} 
                     onChange={handleChange}
-                /><br/><br/>
-            </>
+                />
+            </span>
         )
         }))
 
     return(
         <form class='dynamic-form' onSubmit={(e)=> handleSubmit(e, state)}>
             {formFields}
-            <input type='submit' value='Submit' />
+            <input class='form-button' type='submit' value='Submit' />
         </form>
     )
 }

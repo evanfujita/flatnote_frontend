@@ -22,7 +22,6 @@ const Controls = props => {
     }
 
     const handleEdit = event => {
-        // debugger
          viewNotes ? dispatch(updateNoteForm()) : dispatch(updateTaskForm())
     }
 
@@ -41,11 +40,13 @@ const Controls = props => {
         updateFetch(resource, reqObj)
     }
 
+    const completeButton = task.completed ? 'mark incomplete' : 'mark complete'
+    
+
     return (
         <span class='controls'>
             <li class='navbar-item' onClick={handleEdit}>{editItemButtonDisplay}</li>
-            {viewTasks && task ? <li class='navbar-item' onClick={taskComplete}>mark complete</li> : null}
-
+            {viewTasks && task ? <li class='navbar-item' onClick={taskComplete}>{completeButton}</li> : null}
             <span class='red' onClick={handleDelete}>
                 <li class='navbar-item' >delete</li>
             </span>
