@@ -1,9 +1,10 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { removeNote } from '../../actions/notes'
+import { removeNote, deleteNote } from '../../actions/notes'
 import { deleteFetch, updateFetch, createReqObj } from '../../helpers/fetch'
 import { updateNoteForm, updateTaskForm } from '../../actions/index'
 import { updateTask } from '../../actions/tasks'
+
 
 const Controls = props => {
     const dispatch = useDispatch()
@@ -17,6 +18,8 @@ const Controls = props => {
     // const taskForm = useSelector(state => state.selections.updateTaskForm)
 
     const handleDelete = event => {
+        
+        deleteNote(dispatch, item.id)
         deleteFetch(resource)
         dispatch(removeNote(item))
     }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { createReqObj } from '../../helpers/fetch'
-import { addNote } from '../../actions/notes'
+import { addNotes } from '../../actions/notes'
 
 const NoteForm = () => {
     const user = useSelector(state => state.user)
@@ -14,24 +14,11 @@ const NoteForm = () => {
         setState(item)
     }
 
-    const postFetch = (reqObj) => {
-        fetch('http://localhost:3000/notes', reqObj)
-        .then(resp => resp.json())
-        .then(note => {
-            dispatch(addNote(note))
-        })
-    }
-
     const handleSubmit = event => {
         event.preventDefault()
         if (addNoteForm){
             const reqObj = createReqObj('POST', state)
-            postFetch(reqObj)
-        // } else if (updateNoteForm){
-        //     const reqObj = createReqObj('PATCH', state)
-        //     const id = selections.note.id
-        //     updateFetch(`notes/${id}`, reqObj, update)
-        //     dispatch(updateNoteForm())
+            addNotes(dispatch, reqObj)
         }
         event.target.reset()
     }

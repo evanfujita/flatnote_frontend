@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import App from './App';
 import thunkMiddleware from 'redux-thunk'
@@ -11,7 +11,14 @@ import 'semantic-ui-css/semantic.min.css'
 
 
 
-const store = createStore(reducer, applyMiddleware(thunkMiddleware, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
+const store = createStore(
+  reducer, 
+  compose(
+    applyMiddleware(thunkMiddleware), 
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+)
+  
 
 ReactDOM.render(
     <Provider store={store}>

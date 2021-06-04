@@ -80,6 +80,7 @@ li {
   padding: 3em;
   align-items: center;
   overflow-wrap: break-word;
+  margin-bottom: 2em;
 }
 
 .title:hover, .navbar-item:hover {

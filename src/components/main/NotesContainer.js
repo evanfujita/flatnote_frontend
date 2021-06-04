@@ -4,18 +4,23 @@ import { useSelector } from 'react-redux'
 
 const NotesContainer = () => {
     const { user, notes, tasks } = useSelector(state => state)
-    const { viewNotes, viewTasks } = useSelector(state => state.selections)
+    const { viewNotes } = useSelector(state => state.selections)
 
-    const displayNotes = viewNotes ? notes.map(note => <DisplayTitle item={note} type='note' />) : null
-    const displayTasks = viewTasks ? tasks.map(task => <DisplayTitle item={task} type='task' />) : null
+    const displaySelector = 
+        viewNotes 
+        ? 
+        notes.map(note => <DisplayTitle key={note.id} item={note} type='note' />) 
+        : 
+        tasks.map(task => <DisplayTitle key={task.id} item={task} type='task' />)
+    
+    const display = () => {
+        if(user && user.id){
+            return displaySelector
+        }
+    }
 
     return(
-        user && user.id ?
-        <>
-            {displayNotes}
-            {displayTasks}
-        </>
-        : null
+        display()
     )
 }
 
