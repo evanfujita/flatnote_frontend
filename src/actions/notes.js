@@ -13,7 +13,6 @@ export const addNotes = (dispatch, reqObj) => {
 }
 
 export const deleteNote = (dispatch, id) => {
-    // debugger
     fetch(`http://localhost:3000/notes/${id}`, {method: 'DELETE'})
     .then(resp => resp.json())
     .then(confirmation => dispatch({ type: DELETE_NOTE_SUCCESS, payload: id }))

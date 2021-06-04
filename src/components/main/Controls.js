@@ -1,30 +1,25 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { removeNote, deleteNote } from '../../actions/notes'
-import { deleteFetch, updateFetch, createReqObj } from '../../helpers/fetch'
+import { deleteNote } from '../../actions/notes'
+import { createReqObj } from '../../helpers/fetch'
 import { updateNoteForm, updateTaskForm } from '../../actions/index'
 import { updateTask } from '../../actions/tasks'
 
 
 const Controls = props => {
     const dispatch = useDispatch()
-    const { item, resource } = props
+    const { item } = props
     
     const displayNotes = useSelector(state => state.selections.viewNotes)
     const editItemButtonDisplay = displayNotes ? 'edit note' : 'edit task'
     const task = useSelector(state => state.selections.task)
     const { viewNotes, viewTasks } = useSelector(state => state.selections)
-    // const noteForm = useSelector(state => state.selections.updateNoteForm)
-    // const taskForm = useSelector(state => state.selections.updateTaskForm)
 
-    const handleDelete = event => {
-        
-        deleteNote(dispatch, item.id)
-        deleteFetch(resource)
-        dispatch(removeNote(item))
+    const handleDelete = () => {
+        deleteNote(dispatch, item.id)     
     }
 
-    const handleEdit = event => {
+    const handleEdit = () => {
          viewNotes ? dispatch(updateNoteForm()) : dispatch(updateTaskForm())
     }
 
@@ -36,7 +31,7 @@ const Controls = props => {
     })
     }
 
-    const taskComplete = event => {
+    const taskComplete = () => {
         const resource = `tasks/${task.id}`
         const body = {completed: !task.completed}
         const reqObj = createReqObj('PATCH', body)
@@ -53,7 +48,6 @@ const Controls = props => {
             <span class='red' onClick={handleDelete}>
                 <li class='navbar-item' >delete</li>
             </span>
-            
         </span>
     )
 }

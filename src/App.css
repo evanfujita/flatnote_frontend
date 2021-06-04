@@ -11,7 +11,7 @@
 }
 
 .title, .selected {
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 .main {
@@ -30,7 +30,7 @@
   padding: .5em;
   border-style: solid;
   border-width: 1px;
-  border-radius: 5%;
+  border-radius: 10px;
   text-align: center;
 }
 
@@ -76,7 +76,7 @@ li {
 
 .container {
   border: solid 1px;
-  border-radius: 4px;
+  border-radius: 10px;
   padding: 3em;
   align-items: center;
   overflow-wrap: break-word;
@@ -165,10 +165,13 @@ input {
 }
 
 .form-span-input {
-  width: 60%;
+  width: 90%;
+  height: 35px;
   text-align: center;
+  margin-top: 1em;
 }
 
 .form-button {
   margin-top: 2em;
+  height: 35px;
 }

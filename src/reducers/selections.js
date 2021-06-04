@@ -32,6 +32,9 @@ const selections = (state={
             updateNoteForm: false
         }
 
+    case 'DELETE_NOTE_SUCCESS':
+        return {...state, note: 0}
+
     case 'ADD_TASK_FORM':
         return {
             ...state,
