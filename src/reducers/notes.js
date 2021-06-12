@@ -25,26 +25,12 @@ function notes (state=null, action){
             return updatedNotes
 
         case 'DELETE_NOTE_SUCCESS':
+            debugger
             updatedNotes = state.filter(note => note.id !== action.payload)
             return updatedNotes
 
         case 'DELETE_NOTE_FAILED':
             return state
-       
-        case 'UPDATE':
-            updatedNotes = state.map(note => {
-                if (note.id === action.item.id){
-                    return action.item
-                } else {
-                    return note
-                }
-            })
-            return updatedNotes
-            
-        case 'DELETE':
-            debugger
-            updatedNotes = state.filter(note=> (note.id != action.item.id))
-            return updatedNotes
         
         default:
             return state
