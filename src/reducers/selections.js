@@ -31,6 +31,14 @@ const selections = (state={
             updateNoteForm: false
         }
 
+    case 'EDIT_NOTE_SUCCESS':
+        // debugger
+        return {
+            ...state, 
+            note: action.payload,
+            updateNoteForm: false
+        }
+
     case 'DELETE_NOTE_SUCCESS':
         return {...state, note: 0}
 

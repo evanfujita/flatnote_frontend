@@ -1,10 +1,10 @@
 export const createReqObj = (method, body) => {
     return(
-    {
-    method: method,
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(body)
-    }
+      {
+      method: method,
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(body)
+      }
     )
 }
 

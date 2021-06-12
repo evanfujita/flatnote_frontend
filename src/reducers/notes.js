@@ -11,9 +11,18 @@ function notes (state=null, action){
             updatedNotes = [...state, action.item]
             return updatedNotes
 
-
         case 'ADD_NOTE_SUCCESS':
             return [...state, action.payload]
+
+        case 'EDIT_NOTE_SUCCESS':
+            updatedNotes = state.map(note => {
+                if(note.id === action.payload.id){
+                    return action.payload
+                } else {
+                    return note
+                }
+            })
+            return updatedNotes
 
         case 'DELETE_NOTE_SUCCESS':
             updatedNotes = state.filter(note => note.id !== action.payload)
@@ -21,8 +30,6 @@ function notes (state=null, action){
 
         case 'DELETE_NOTE_FAILED':
             return state
-            
-
        
         case 'UPDATE':
             updatedNotes = state.map(note => {

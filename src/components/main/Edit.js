@@ -13,9 +13,11 @@ const Edit = props => {
     const [state, setState] = useState({})
 
     const handleSubmit = event => {
+        event.preventDefault()
         const body = state
+        const id = note.id || task.id
         const reqObj = createReqObj('PATCH', body)
-        
+        editNote(dispatch, reqObj, id)        
     }
 
     const handleChange = event => {
