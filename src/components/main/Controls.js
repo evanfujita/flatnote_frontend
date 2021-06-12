@@ -24,11 +24,12 @@ const Controls = props => {
     }
 
     const updateFetch = (resource, reqObj) => {
-    fetch(`http://localhost:3000/${resource}`, reqObj)
-    .then(resp => resp.json())
-    .then(task => {
-        dispatch(updateTask(task))
-    })
+        fetch(`http://localhost:3000/${resource}`, reqObj)
+        .then(resp => resp.json())
+        .then(task => {
+            debugger
+            dispatch(updateTask(task))
+        })
     }
 
     const taskComplete = () => {

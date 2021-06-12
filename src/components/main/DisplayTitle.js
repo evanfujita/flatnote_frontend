@@ -24,7 +24,7 @@ const DisplayTitle = props => {
             onClick={()=> handleClick(item)}
             id={item.id} 
             >
-            {item.completed ? <s> {item.title} </s> : item.title}
+            {item.completed ? <span class='completed-task'> {item.title} </span> : item.title}
         </p>    
         
     )

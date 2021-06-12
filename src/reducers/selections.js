@@ -9,7 +9,6 @@ const selections = (state={
     updateTaskForm: false},
     action) => {
     
-    let newState
     switch(action.type){
     case 'SELECT_NOTE':
         return {

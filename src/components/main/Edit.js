@@ -3,9 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 
 const Edit = props => {
     //redux
-    const { updateNoteForm, updateTaskForm, note, task } = useSelector(state => state.selections)
-    const type = updateNoteForm ? note.id : task.id
-
+    const { updateNoteForm, note, task } = useSelector(state => state.selections)
+    
     //state
     const [state, setState] = useState({})
 
@@ -18,7 +17,6 @@ const Edit = props => {
     }
 
     return (
-        note && updateNoteForm || task && updateTaskForm ?
         <form onSubmit={handleSubmit}>
             <span class='form-span'>
                 <label class='form-label'>Title</label>
@@ -28,9 +26,8 @@ const Edit = props => {
                 <label class='form-label'>Content</label>
                 <input class='form-span-input' type='text' name='body' placeholder={note.body || task.body} onChange={handleChange}></input>
             </span>
-            <input class='form-button' type='submit' value='edit button' />
+            <input class='form-button' type='submit' value='update item' />
         </form>
-        : null
     )
 }
 
