@@ -1,19 +1,26 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { createReqObj } from '../../helpers/fetch'
+import { editNote } from '../../actions/notes'
 
 const Edit = props => {
     //redux
-    const { updateNoteForm, note, task } = useSelector(state => state.selections)
-    
+    const { note, task } = useSelector(state => state.selections)
+    const dispatch = useDispatch()
+    // const { type } = props
+
     //state
     const [state, setState] = useState({})
 
     const handleSubmit = event => {
-      console.log('build out submit edit')
+        const body = state
+        const reqObj = createReqObj('PATCH', body)
+        
     }
 
     const handleChange = event => {
-        setState({...state, [event.target.name]: event.target.value})
+        const { name, value } = event.target
+        setState({...state, [name]: value})
     }
 
     return (
