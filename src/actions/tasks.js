@@ -26,9 +26,7 @@ export const editTask = (dispatch, reqObj, id) => {
 export const completeTask = (dispatch, reqObj, id) => {
     fetch(`http://localhost:3000/tasks/${id}`, reqObj)
     .then(resp => resp.json())
-    .then(task => {
-        dispatch({type: COMPLETE_TASK_SUCCESS, payload: task})
-    })
+    .then(task =>dispatch({ type: COMPLETE_TASK_SUCCESS, payload: task }))
 }
 
 export const deleteTask = (dispatch, id) => {

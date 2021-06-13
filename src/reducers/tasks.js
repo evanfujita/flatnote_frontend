@@ -22,8 +22,8 @@ function tasks (state=null, action){
             })
             return updatedTasks
             
-        case 'DELETE_TASK':
-            updatedTasks = state.filter(task=> (task.id != action.item.id))
+        case 'DELETE_TASK_SUCCESS':
+            updatedTasks = state.filter(task=> (task.id != action.payload))
             return updatedTasks
         
         default:

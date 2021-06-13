@@ -1,24 +1,25 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { deleteNote } from '../../actions/notes'
+import { editNote, deleteNote } from '../../actions/notes'
 import { createReqObj } from '../../helpers/fetch'
 import { updateNoteForm, updateTaskForm } from '../../actions/index'
-import { editNote } from '../../actions/notes'
-import { updateTask, completeTask } from '../../actions/tasks'
-
+import { updateTask, deleteTask, completeTask } from '../../actions/tasks'
 
 const Controls = props => {
     const dispatch = useDispatch()
     const { item } = props
     
     const displayNotes = useSelector(state => state.selections.viewNotes)
-    const id = useSelector(state => state.user.id)
     const editItemButtonDisplay = displayNotes ? 'edit note' : 'edit task'
-    const task = useSelector(state => state.selections.task)
-    const { viewNotes, viewTasks } = useSelector(state => state.selections)
+    const { viewNotes, viewTasks, task, note } = useSelector(state => state.selections)
 
     const handleDelete = () => {
-        deleteNote(dispatch, item.id)     
+        if(item === 'note'){
+            deleteNote(dispatch, note.id)         
+        } else {
+            deleteTask(dispatch, task.id)     
+        }
+            
     }
 
     const handleEdit = () => {
@@ -28,14 +29,11 @@ const Controls = props => {
     const taskComplete = () => {
         const body = {completed: !task.completed}
         const reqObj = createReqObj('PATCH', body)
-        completeTask(dispatch, reqObj, id)
-        // updateFetch(resource, reqObj)
-        // editNote(dispatch, reqObj, id)
+        completeTask(dispatch, reqObj, task.id)
     }
 
     const completeButton = task.completed ? 'mark incomplete' : 'mark complete'
     
-
     return (
         <span class='controls'>
             <li class='navbar-item' onClick={handleEdit}>{editItemButtonDisplay}</li>
