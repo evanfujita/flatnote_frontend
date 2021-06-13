@@ -2,7 +2,7 @@ function tasks (state=null, action){
     let updatedTasks
     switch(action.type){
         case 'LOGIN_SUCCESS':
-            return action.user.tasks
+            return action.payload.tasks
     
         case 'LOGOUT_SUCCESS':
             return {}

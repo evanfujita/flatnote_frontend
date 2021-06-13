@@ -2,7 +2,7 @@ function notes (state=null, action){
     let updatedNotes
     switch(action.type){
         case 'LOGIN_SUCCESS':
-            return action.user.notes
+            return action.payload.notes
     
         case 'LOGOUT_SUCCESS':
             return {}

@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { createReqObj } from '../../helpers/fetch'
 import { loginAuth, loginFail } from '../../actions/user'
+import { loginFetch } from '../../actions/user'
 
 import DynamicForm from '../forms//DynamicForm'
 
@@ -12,17 +13,8 @@ const Login = props => {
     
     //methods
     const dispatch = useDispatch()
-
-    const loginFetch = (reqObj) => {
-        fetch('http://localhost:3000/login', reqObj)
-        .then(resp => resp.json())
-        .then(user => {
-            if (user.id){dispatch(loginAuth(user))}
-            if (user.error){loginFail()}
-        })
-    }
     
-    const postFetch = (reqObj) => {
+    const postFetch = (dispatch, reqObj) => {
         fetch('http://localhost:3000/users', reqObj)
         .then(resp => resp.json())
         .then(data => {
@@ -35,7 +27,7 @@ const Login = props => {
         event.preventDefault()
         const user = state
         const reqObj = createReqObj('POST', {user: user})
-        user.password_confirmation ? postFetch(reqObj) : loginFetch(reqObj)
+        user.password_confirmation ? postFetch(dispatch, reqObj) : loginFetch(dispatch, reqObj)
         event.target.reset()
     }
 

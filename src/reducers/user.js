@@ -1,9 +1,10 @@
 function user(state=null, action){
     switch(action.type){
         case 'LOGIN_SUCCESS':
+            // debugger
             return {
-                id: action.user.id,
-                username: action.user.username
+                id: action.payload.id,
+                username: action.payload.username
             }
         case 'LOGIN_FAIL':
             return 'FAIL'

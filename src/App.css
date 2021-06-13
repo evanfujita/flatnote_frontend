@@ -172,7 +172,8 @@ input {
 }
 
 #show-task-form, #show-note-form, #show-form  {
-  background: green;
+  background: orange;
+  color: white;
 }
 
 #textarea {
