@@ -12,7 +12,6 @@ export const loginFetch = (reqObj, loginAuth, loginFail) => {
     fetch('http://localhost:3000/login', reqObj)
     .then(resp => resp.json())
     .then(user => {
-        // debugger
         if (user.id){loginAuth(user)}
         if (user.error){loginFail()}
     })
@@ -43,15 +42,3 @@ export const deleteFetch = (resource) => {
         
     })
 }
-
-export const updateFetch = (resource, reqObj, reducer) => {
-    fetch(`http://localhost:3000/${resource}`, reqObj)
-    .then(resp => resp.json())
-    .then(data => {
-        console.log(data)
-        if(reducer){
-            reducer(data)
-        }
-    })
-}
-

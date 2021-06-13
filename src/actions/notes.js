@@ -27,18 +27,3 @@ export const deleteNote = (dispatch, id) => {
     .then(confirmation => dispatch({ type: DELETE_NOTE_SUCCESS, payload: id }))
     .catch(error => dispatch({ type: DELETE_NOTE_FAILED, payload: error }))
 }
-
-export const addNote = item => {
-    return {
-        type: 'ADD_NOTE',
-        item
-    }
-}
-
-export const removeNote = item => {
-    return {
-        type: 'DELETE_NOTE',
-        item
-    }
-}
-

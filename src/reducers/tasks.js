@@ -7,19 +7,14 @@ function tasks (state=null, action){
         case 'LOGOUT_SUCCESS':
             return {}
        
-        case 'ADD_TASK':
+        case 'ADD_TASK_SUCCESS':
             updatedTasks = [...state, action.item]
             return updatedTasks
        
-        case 'UPDATE_TASK':
-            updatedTasks = state.map(task => {
-                if (task.id === action.item.id){
-                    return action.item
-                } else {
-                    return task
-                }
-            })
+        case 'EDIT_TASK_SUCCESS':
+            updatedTasks = [...state, action.item]
             return updatedTasks
+        
             
         case 'DELETE_TASK':
             updatedTasks = state.filter(task=> (task.id != action.item.id))
