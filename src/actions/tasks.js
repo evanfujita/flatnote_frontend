@@ -19,7 +19,9 @@ export const addTask = (dispatch, reqObj) => {
 export const editTask = (dispatch, reqObj, id) => {
     fetch(`http://localhost:3000/tasks/${id}`, reqObj)
     .then(resp => resp.json())
-    .then(task => dispatch({ type: EDIT_TASK_SUCCESS, payload: task }))
+    .then(task => {
+        // debugger
+        dispatch({ type: EDIT_TASK_SUCCESS, payload: task })})
     .catch(error => dispatch({ type: EDIT_TASK_FAILED, payload: error }))
 }
 

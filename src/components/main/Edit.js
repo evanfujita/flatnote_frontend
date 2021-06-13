@@ -2,22 +2,25 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { createReqObj } from '../../helpers/fetch'
 import { editNote } from '../../actions/notes'
+import { editTask } from '../../actions/tasks'
 
 const Edit = props => {
     //redux
     const { note, task } = useSelector(state => state.selections)
     const dispatch = useDispatch()
-    // const { type } = props
+    const { type } = props
 
     //state
     const [state, setState] = useState({})
 
+    //methods
     const handleSubmit = event => {
         event.preventDefault()
         const body = state
         const id = note.id || task.id
         const reqObj = createReqObj('PATCH', body)
-        editNote(dispatch, reqObj, id)        
+        if(type === 'note') { editNote(dispatch, reqObj, id) }
+        if(type === 'task') { editTask(dispatch, reqObj, id) }
     }
 
     const handleChange = event => {

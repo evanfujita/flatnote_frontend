@@ -13,6 +13,7 @@ function tasks (state=null, action){
        
         case 'EDIT_TASK_SUCCESS':
         case 'COMPLETE_TASK_SUCCESS':
+            // debugger
             updatedTasks = state.map(task => {
                 if(task.id === action.payload.id){
                     return action.payload

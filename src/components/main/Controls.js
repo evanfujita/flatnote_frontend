@@ -1,25 +1,26 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { editNote, deleteNote } from '../../actions/notes'
+import { deleteNote } from '../../actions/notes'
 import { createReqObj } from '../../helpers/fetch'
 import { updateNoteForm, updateTaskForm } from '../../actions/index'
-import { updateTask, deleteTask, completeTask } from '../../actions/tasks'
+import { deleteTask, completeTask } from '../../actions/tasks'
 
 const Controls = props => {
-    const dispatch = useDispatch()
-    const { item } = props
     
+    //redux
     const displayNotes = useSelector(state => state.selections.viewNotes)
-    const editItemButtonDisplay = displayNotes ? 'edit note' : 'edit task'
     const { viewNotes, viewTasks, task, note } = useSelector(state => state.selections)
+    const dispatch = useDispatch()
 
+    //identifiers and displays
+    const { item } = props
+    const completeButton = task.completed ? 'mark incomplete' : 'mark complete'
+    const editItemButtonDisplay = displayNotes ? 'edit note' : 'edit task'
+
+    //methods
     const handleDelete = () => {
-        if(item === 'note'){
-            deleteNote(dispatch, note.id)         
-        } else {
-            deleteTask(dispatch, task.id)     
-        }
-            
+        if(item === 'note'){ deleteNote(dispatch, note.id) }
+        if(item === 'task'){ deleteTask(dispatch, task.id) }
     }
 
     const handleEdit = () => {
@@ -32,8 +33,6 @@ const Controls = props => {
         completeTask(dispatch, reqObj, task.id)
     }
 
-    const completeButton = task.completed ? 'mark incomplete' : 'mark complete'
-    
     return (
         <span class='controls'>
             <li class='navbar-item' onClick={handleEdit}>{editItemButtonDisplay}</li>
