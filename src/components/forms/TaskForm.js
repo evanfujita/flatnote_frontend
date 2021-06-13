@@ -4,11 +4,16 @@ import { createReqObj } from '../../helpers/fetch'
 import { addTask } from '../../actions/tasks'
 
 const TaskForm = props => {
+
+    //redux
     const user = useSelector(state => state.user)
     const { addTaskForm } = useSelector(state => state.selections)
     const dispatch = useDispatch()
+    
+    //local state
     const [state, setState] = useState({user_id: user.id})
 
+    //methods
     const handleChange = event => {
         const { name, value } = event.target
         const item = {...state, [name]: value}

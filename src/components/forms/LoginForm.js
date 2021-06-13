@@ -2,7 +2,10 @@ import React from 'react'
 
 
 const LoginForm = props => {
+
+    //destructured props
     const { handleChange } = props
+
     return(
         <div class='login-form'>
             <input type='text' name='username' placeholder='username' onChange={handleChange} />

@@ -23,8 +23,7 @@ function App() {
             </div>
             <div class='second-column'>
               { user === 'FAIL' ? 'There was a problem' : null }
-              { note ? <Item item={ note } type='note' /> : null }
-              { task ? <Item item={ task } type='task' /> : null }
+              { note || task ? <Item item={ note || task } /> : null }
               { addNoteForm && viewNotes ? <NoteForm /> : null }
               { addTaskForm && viewTasks ? <TaskForm /> : null }
               { updateNoteForm && viewNotes ? <Edit type='note' /> : null }

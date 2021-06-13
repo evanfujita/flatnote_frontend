@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import Login from '../main/Login'
 
 const LoggedOut = () => {
+    
+    //local state
     const [login, setLogin] = useState(null);
     
+    //methods
     const handleLogin = event => {
       const type = event.target.id
       login ? setLogin(null) : setLogin(<Login type={type} />)

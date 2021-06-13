@@ -6,9 +6,9 @@ import { loginFetch } from '../../actions/user'
 
 import DynamicForm from '../forms//DynamicForm'
 
-
 const Login = props => {
     
+    //destructured props
     const { type } = props
     
     //methods
@@ -23,6 +23,7 @@ const Login = props => {
         })
     }
 
+    //methods
     const handleSubmit = (event, state) => {
         event.preventDefault()
         const user = state

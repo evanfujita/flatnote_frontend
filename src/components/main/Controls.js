@@ -7,8 +7,8 @@ import { deleteTask, completeTask } from '../../actions/tasks'
 
 const Controls = props => {
     
-    //destructured props: item = 
-    const { item } = props
+    //destructured props: item
+    const { type } = props
     
     //redux
     const { viewNotes, viewTasks, task, note } = useSelector(state => state.selections)
@@ -24,8 +24,8 @@ const Controls = props => {
 
     //methods
     const handleDelete = () => {
-        if(item === 'note'){ deleteNote(dispatch, note.id) }
-        if(item === 'task'){ deleteTask(dispatch, task.id) }
+        if(type === 'note'){ deleteNote(dispatch, note.id) }
+        if(type === 'task'){ deleteTask(dispatch, task.id) }
     }
 
     const handleEdit = () => {

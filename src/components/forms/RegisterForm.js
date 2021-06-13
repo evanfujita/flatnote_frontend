@@ -1,7 +1,10 @@
 import React from 'react'
 
 const RegisterForm = props => {
+
+    //destructured props
     const { handleChange } = props
+    
     return(
         <div class='login-form'>
             <input class='input' type='text' name='username' placeholder='username' onChange={handleChange} />

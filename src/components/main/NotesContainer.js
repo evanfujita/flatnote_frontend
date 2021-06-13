@@ -3,9 +3,12 @@ import DisplayTitle from './DisplayTitle'
 import { useSelector } from 'react-redux'
 
 const NotesContainer = () => {
+
+    //redux
     const { user, notes, tasks } = useSelector(state => state)
     const { viewNotes } = useSelector(state => state.selections)
 
+    //display notes or tasks
     const displaySelector = 
         viewNotes 
         ? 
@@ -13,6 +16,7 @@ const NotesContainer = () => {
         : 
         tasks.map(task => <DisplayTitle key={task.id} item={task} type='task' />)
     
+    //conditional to display if user is logged in    
     const display = () => {
         if(user && user.id){
             return displaySelector

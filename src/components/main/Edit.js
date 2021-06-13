@@ -5,10 +5,12 @@ import { editNote } from '../../actions/notes'
 import { editTask } from '../../actions/tasks'
 
 const Edit = props => {
+    //destructured props
+    const { type } = props
+    
     //redux
     const { note, task } = useSelector(state => state.selections)
     const dispatch = useDispatch()
-    const { type } = props
 
     //state
     const [state, setState] = useState({})

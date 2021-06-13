@@ -24,6 +24,8 @@ export const editNote = (dispatch, reqObj, id) => {
 export const deleteNote = (dispatch, id) => {
     fetch(`http://localhost:3000/notes/${id}`, {method: 'DELETE'})
     .then(resp => resp.json())
-    .then(confirmation => dispatch({ type: DELETE_NOTE_SUCCESS, payload: id }))
+    .then(confirmation => {
+        debugger
+        dispatch({ type: DELETE_NOTE_SUCCESS, payload: id })})
     .catch(error => dispatch({ type: DELETE_NOTE_FAILED, payload: error }))
 }

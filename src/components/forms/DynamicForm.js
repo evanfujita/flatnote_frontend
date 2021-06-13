@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
 
 const DynamicForm = props => {
+
+    //props
+    const { items, handleSubmit } = props
+    
     //local state
     const [state, setState] = useState('')
     
+    //method
     const handleChange = event => {
         const change = {...state, [event.target.name]: event.target.value}
         setState(change)
     }
     
-    const { items, handleSubmit } = props
-
+    //form fields passed in
     const formFields = items.map((item =>
         {
         const { header, type, name } = item 
@@ -27,7 +31,8 @@ const DynamicForm = props => {
                 />
             </span>
         )
-        }))
+        }
+    ))
 
     return(
         <form class='dynamic-form' onSubmit={(e)=> handleSubmit(e, state)}>

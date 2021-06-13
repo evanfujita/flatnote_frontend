@@ -6,7 +6,6 @@ import {
     DELETE_TASK_SUCCESS,
     DELETE_TASK_FAILED,
     COMPLETE_TASK_SUCCESS,
-    COMPLETE_TASK_FAILED,
 } from '../helpers/constants'
 
 export const addTask = (dispatch, reqObj) => {

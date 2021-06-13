@@ -26,8 +26,8 @@ const LoggedIn = () => {
             {displayNotes ? <li class='navbar-item' id={noteSelector} onClick={()=> dispatch(addNoteForm())} >add note</li> : null}
             {displayTasks ? <li class='navbar-item' id={taskSelector} onClick={()=> dispatch(addTaskForm())} >add task</li> : null}
             
-            {note ? <Controls resource={`notes/${note.id}`} item={note} /> : null}
-            {task ? <Controls resource={`notes/${task.id}`} item={task} /> : null}
+            {note ? <Controls type='note' /> : null}
+            {task ? <Controls type='task' /> : null}
             <span class='positioned'>
                 <li class='navbar-item' onClick={()=> dispatch(logout())}>logout</li>
             </span>

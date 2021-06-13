@@ -4,11 +4,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import { selectNote, selectTask } from '../../actions/index'
 
 const DisplayTitle = props => {
+
+    //destructured props
+    const { item, type } = props
+
+    //redux
     const selectedNote = useSelector(state => state.selections.note)
     const selectedTask = useSelector(state => state.selections.task)
     const dispatch = useDispatch()
-    const { item, type } = props
     
+    //methods
     const handleClick = item => {
         const { type } = props
         if(type === 'note'){ dispatch(selectNote(item)) } 

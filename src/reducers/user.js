@@ -1,7 +1,6 @@
 function user(state=null, action){
     switch(action.type){
         case 'LOGIN_SUCCESS':
-            // debugger
             return {
                 id: action.payload.id,
                 username: action.payload.username

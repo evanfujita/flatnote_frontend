@@ -6,10 +6,6 @@ function notes (state=null, action){
     
         case 'LOGOUT_SUCCESS':
             return {}
-       
-        case 'ADD_NOTE':
-            updatedNotes = [...state, action.item]
-            return updatedNotes
 
         case 'ADD_NOTE_SUCCESS':
             return [...state, action.payload]
@@ -25,7 +21,6 @@ function notes (state=null, action){
             return updatedNotes
 
         case 'DELETE_NOTE_SUCCESS':
-            debugger
             updatedNotes = state.filter(note => note.id !== action.payload)
             return updatedNotes
 
