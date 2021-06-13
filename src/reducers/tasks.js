@@ -12,7 +12,7 @@ function tasks (state=null, action){
             return updatedTasks
        
         case 'EDIT_TASK_SUCCESS':
-            debugger
+        case 'COMPLETE_TASK_SUCCESS':
             updatedTasks = state.map(task => {
                 if(task.id === action.payload.id){
                     return action.payload
@@ -21,7 +21,6 @@ function tasks (state=null, action){
                 }
             })
             return updatedTasks
-        
             
         case 'DELETE_TASK':
             updatedTasks = state.filter(task=> (task.id != action.item.id))

@@ -32,13 +32,13 @@ const selections = (state={
         }
 
     case 'EDIT_NOTE_SUCCESS':
-        // debugger
         return {
             ...state, 
             note: action.payload,
             updateNoteForm: false
         }
 
+    
     case 'DELETE_NOTE_SUCCESS':
         return {...state, note: 0}
 
@@ -47,6 +47,12 @@ const selections = (state={
             ...state,
             addTaskForm: !state.addTaskForm,
             // updateNoteForm: false
+        }
+    
+    case 'COMPLETE_TASK_SUCCESS':
+        return {
+            ...state,
+            task: action.payload
         }
 
     case 'UPDATE_NOTE_FORM':

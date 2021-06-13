@@ -4,7 +4,7 @@ import { deleteNote } from '../../actions/notes'
 import { createReqObj } from '../../helpers/fetch'
 import { updateNoteForm, updateTaskForm } from '../../actions/index'
 import { editNote } from '../../actions/notes'
-import { updateTask } from '../../actions/tasks'
+import { updateTask, completeTask } from '../../actions/tasks'
 
 
 const Controls = props => {
@@ -26,11 +26,11 @@ const Controls = props => {
     }
 
     const taskComplete = () => {
-        const resource = `tasks/${task.id}`
         const body = {completed: !task.completed}
         const reqObj = createReqObj('PATCH', body)
+        completeTask(dispatch, reqObj, id)
         // updateFetch(resource, reqObj)
-        editNote(dispatch, reqObj, id)
+        // editNote(dispatch, reqObj, id)
     }
 
     const completeButton = task.completed ? 'mark incomplete' : 'mark complete'

@@ -5,6 +5,8 @@ import {
     EDIT_TASK_FAILED,
     DELETE_TASK_SUCCESS,
     DELETE_TASK_FAILED,
+    COMPLETE_TASK_SUCCESS,
+    COMPLETE_TASK_FAILED,
 } from '../helpers/constants'
 
 export const addTask = (dispatch, reqObj) => {
@@ -19,6 +21,14 @@ export const editTask = (dispatch, reqObj, id) => {
     .then(resp => resp.json())
     .then(task => dispatch({ type: EDIT_TASK_SUCCESS, payload: task }))
     .catch(error => dispatch({ type: EDIT_TASK_FAILED, payload: error }))
+}
+
+export const completeTask = (dispatch, reqObj, id) => {
+    fetch(`http://localhost:3000/tasks/${id}`, reqObj)
+    .then(resp => resp.json())
+    .then(task => {
+        dispatch({type: COMPLETE_TASK_SUCCESS, payload: task})
+    })
 }
 
 export const deleteTask = (dispatch, id) => {
