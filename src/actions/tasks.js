@@ -27,3 +27,10 @@ export const deleteTask = (dispatch, id) => {
     .then(confirmation => dispatch({ type: DELETE_TASK_SUCCESS, payload: id }))
     .catch(error => dispatch({ type: DELETE_TASK_FAILED, payload: error }))
 }
+
+export const updateTask = item => {
+    return {
+        type: 'UPDATE_TASK',
+        item
+    }
+}

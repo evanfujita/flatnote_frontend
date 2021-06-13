@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { deleteNote } from '../../actions/notes'
 import { createReqObj } from '../../helpers/fetch'
 import { updateNoteForm, updateTaskForm } from '../../actions/index'
+import { editNote } from '../../actions/notes'
 import { updateTask } from '../../actions/tasks'
 
 
@@ -11,6 +12,7 @@ const Controls = props => {
     const { item } = props
     
     const displayNotes = useSelector(state => state.selections.viewNotes)
+    const id = useSelector(state => state.user.id)
     const editItemButtonDisplay = displayNotes ? 'edit note' : 'edit task'
     const task = useSelector(state => state.selections.task)
     const { viewNotes, viewTasks } = useSelector(state => state.selections)
@@ -23,20 +25,12 @@ const Controls = props => {
          viewNotes ? dispatch(updateNoteForm()) : dispatch(updateTaskForm())
     }
 
-    const updateFetch = (resource, reqObj) => {
-        fetch(`http://localhost:3000/${resource}`, reqObj)
-        .then(resp => resp.json())
-        .then(task => {
-            debugger
-            dispatch(updateTask(task))
-        })
-    }
-
     const taskComplete = () => {
         const resource = `tasks/${task.id}`
         const body = {completed: !task.completed}
         const reqObj = createReqObj('PATCH', body)
-        updateFetch(resource, reqObj)
+        // updateFetch(resource, reqObj)
+        editNote(dispatch, reqObj, id)
     }
 
     const completeButton = task.completed ? 'mark incomplete' : 'mark complete'

@@ -8,11 +8,18 @@ function tasks (state=null, action){
             return {}
        
         case 'ADD_TASK_SUCCESS':
-            updatedTasks = [...state, action.item]
+            updatedTasks = [...state, action.payload]
             return updatedTasks
        
         case 'EDIT_TASK_SUCCESS':
-            updatedTasks = [...state, action.item]
+            debugger
+            updatedTasks = state.map(task => {
+                if(task.id === action.payload.id){
+                    return action.payload
+                } else {
+                    return task
+                }
+            })
             return updatedTasks
         
             

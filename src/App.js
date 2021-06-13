@@ -4,7 +4,6 @@ import NoteForm from './components/forms/NoteForm'
 import TaskForm from './components/forms/TaskForm'
 import NotesContainer from './components/main/NotesContainer'
 import { useSelector } from 'react-redux'
-import DynamicForm from './components/forms/DynamicForm'
 import LoggedIn from './components/navbar/LoggedIn'
 import LoggedOut from './components/navbar/LoggedOut'
 import Edit from './components/main/Edit'
@@ -27,7 +26,7 @@ function App() {
               { note ? <Item item={ note } type='note' /> : null }
               { task ? <Item item={ task } type='task' /> : null }
               { addNoteForm && viewNotes ? <NoteForm /> : null }
-              { addTaskForm && viewTasks ? <NoteForm /> : null }
+              { addTaskForm && viewTasks ? <TaskForm /> : null }
               { updateNoteForm && viewNotes ? <Edit type='note' /> : null }
               { updateTaskForm && viewTasks ? <Edit type='task' /> : null }
             </div>
