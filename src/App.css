@@ -171,12 +171,10 @@ input {
   margin-top: 1em;
 }
 
-/* input:read-only {
-  width: 90%;
-  height: 35px;
-  text-align: center;
-  margin-top: 1em;
-} */
+#show-task-form, #show-note-form, #show-form  {
+  background: green;
+}
+
 #textarea {
   height: 5em;
 }

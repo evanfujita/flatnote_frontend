@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
 import { createReqObj } from '../../helpers/fetch'
 import { loginAuth, loginFail } from '../../actions/user'
+
 import DynamicForm from '../forms//DynamicForm'
+
 
 const Login = props => {
     
@@ -24,6 +26,7 @@ const Login = props => {
         fetch('http://localhost:3000/users', reqObj)
         .then(resp => resp.json())
         .then(data => {
+                debugger
                 dispatch(loginAuth(data))
         })
     }
@@ -49,9 +52,7 @@ const Login = props => {
     ]
 
     return(
-        
-            <DynamicForm handleSubmit={handleSubmit} items={type==='login' ? loginItems : signupItems} />
-        
+            <DynamicForm handleSubmit={handleSubmit} items={type==='login' ? loginItems : signupItems} />   
     )
 }
 

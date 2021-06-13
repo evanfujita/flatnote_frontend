@@ -12,7 +12,6 @@ const selections = (state={
     switch(action.type){
 
 //notes
-
     case 'SELECT_NOTE':
         return {
             ...state,
@@ -53,7 +52,6 @@ const selections = (state={
         return {...state, note: 0}
 
 //tasks
-    
     case 'SELECT_TASK':
         return {
             ...state,
@@ -65,6 +63,7 @@ const selections = (state={
         return {
             ...state,
             addTaskForm: !state.addTaskForm,
+            updateTaskForm: false
         }
     
     case 'EDIT_TASK_SUCCESS':

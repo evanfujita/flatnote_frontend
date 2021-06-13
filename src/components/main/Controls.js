@@ -7,13 +7,18 @@ import { deleteTask, completeTask } from '../../actions/tasks'
 
 const Controls = props => {
     
+    //destructured props: item = 
+    const { item } = props
+    
     //redux
-    const displayNotes = useSelector(state => state.selections.viewNotes)
     const { viewNotes, viewTasks, task, note } = useSelector(state => state.selections)
+    const displayNotes = useSelector(state => state.selections.viewNotes)
+    const displayNoteForm = useSelector(state => state.selections.updateNoteForm)
+    const displayTaskForm = useSelector(state => state.selections.updateTaskForm)
     const dispatch = useDispatch()
 
-    //identifiers and displays
-    const { item } = props
+    //identifiers and displays to indicate selection
+    const showForm = displayNoteForm || displayTaskForm ? 'show-form' : 'edit'
     const completeButton = task.completed ? 'mark incomplete' : 'mark complete'
     const editItemButtonDisplay = displayNotes ? 'edit note' : 'edit task'
 
@@ -35,7 +40,7 @@ const Controls = props => {
 
     return (
         <span class='controls'>
-            <li class='navbar-item' onClick={handleEdit}>{editItemButtonDisplay}</li>
+            <li class='navbar-item' id={showForm} onClick={handleEdit}>{editItemButtonDisplay}</li>
             {viewTasks && task ? <li class='navbar-item' onClick={taskComplete}>{completeButton}</li> : null}
             <span class='red' onClick={handleDelete}>
                 <li class='navbar-item' >delete</li>

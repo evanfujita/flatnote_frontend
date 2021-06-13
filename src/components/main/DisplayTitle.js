@@ -11,11 +11,8 @@ const DisplayTitle = props => {
     
     const handleClick = item => {
         const { type } = props
-        if(type === 'note'){
-            dispatch(selectNote(item))
-        } else {
-            dispatch(selectTask(item))
-        }        
+        if(type === 'note'){ dispatch(selectNote(item)) } 
+        if(type === 'task'){ dispatch(selectTask(item)) }        
     }
 
     return(
