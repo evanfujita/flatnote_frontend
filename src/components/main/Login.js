@@ -18,7 +18,7 @@ const Login = props => {
         fetch('http://localhost:3000/users', reqObj)
         .then(resp => resp.json())
         .then(data => {
-                debugger
+                // debugger
                 dispatch(loginAuth(data))
         })
     }
