@@ -3,14 +3,11 @@ import Item from './components/main/Item'
 import NoteForm from './components/forms/NoteForm'
 import TaskForm from './components/forms/TaskForm'
 import NotesContainer from './components/main/NotesContainer'
-import { useSelector } from 'react-redux'
 import LoggedIn from './components/navbar/LoggedIn'
 import LoggedOut from './components/navbar/LoggedOut'
 import Edit from './components/main/Edit'
 
 function App() {
-  const user = useSelector(state => state.user)
-  const { note, task, addNoteForm, addTaskForm, viewNotes, viewTasks, updateNoteForm, updateTaskForm } = useSelector(state => state.selections)
 
   return (
         <div>
@@ -24,8 +21,8 @@ function App() {
             <div class='second-column'>
               { user === 'FAIL' ? 'There was a problem' : null }
               { note || task ? <Item item={ note || task } /> : null }
-              { addNoteForm && viewNotes ? <NoteForm /> : null }
-              { addTaskForm && viewTasks ? <TaskForm /> : null }
+              {/* { addNoteForm && viewNotes ? <NoteForm /> : null } */}
+              {/* { addTaskForm && viewTasks ? <TaskForm /> : null } */}
               { updateNoteForm && viewNotes ? <Edit type='note' /> : null }
               { updateTaskForm && viewTasks ? <Edit type='task' /> : null }
             </div>
