@@ -1,31 +1,19 @@
 import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
 import { createReqObj } from '../../helpers/fetch'
 import { addNotes } from '../../actions/notes'
 
 const NoteForm = props => {
-
-    //redux
-    const user = useSelector(state => state.user)
-    const { addNoteForm } = useSelector(state => state.selections)
-    const dispatch = useDispatch()
     
     //local state
-    const [state, setState] = useState({user_id: user.id})
+    // const [state, setState] = useState({user_id: user.id})
     
     //methods
     const handleChange = event => {
-        const { name, value } = event.target
-        const item = {...state, [name]: value}
-        setState(item)
+        
     }
 
     const handleSubmit = event => {
         event.preventDefault()
-        const reqObj = createReqObj('POST', state)
-        if (addNoteForm){
-            addNotes(dispatch, reqObj)
-        }
         event.target.reset()
     }
     

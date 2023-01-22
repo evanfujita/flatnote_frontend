@@ -1,17 +1,11 @@
 import React from 'react'
 
-import { useSelector, useDispatch } from 'react-redux'
 import { selectNote, selectTask } from '../../actions/index'
 
 const DisplayTitle = props => {
 
     //destructured props
     const { item, type } = props
-
-    //redux
-    const selectedNote = useSelector(state => state.selections.note)
-    const selectedTask = useSelector(state => state.selections.task)
-    const dispatch = useDispatch()
     
     //methods
     const handleClick = item => {
@@ -22,7 +16,7 @@ const DisplayTitle = props => {
 
     return(
         <p 
-            class={(type === 'note' && selectedNote.id === item.id) || (type === 'task' && selectedTask.id === item.id) ? 'selected' : 'title'}
+            // class={(type === 'note' && selectedNote.id === item.id) || (type === 'task' && selectedTask.id === item.id) ? 'selected' : 'title'}
             onClick={()=> handleClick(item)}
             id={item.id} 
             >

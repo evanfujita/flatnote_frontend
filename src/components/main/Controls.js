@@ -1,5 +1,4 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
 import { deleteNote } from '../../actions/notes'
 import { createReqObj } from '../../helpers/fetch'
 import { updateNoteForm, updateTaskForm } from '../../actions/index'
@@ -9,13 +8,6 @@ const Controls = props => {
     
     //destructured props: item
     const { type } = props
-    
-    //redux
-    const { viewNotes, viewTasks, task, note } = useSelector(state => state.selections)
-    const displayNotes = useSelector(state => state.selections.viewNotes)
-    const displayNoteForm = useSelector(state => state.selections.updateNoteForm)
-    const displayTaskForm = useSelector(state => state.selections.updateTaskForm)
-    const dispatch = useDispatch()
 
     //identifiers and displays to indicate selection
     const showForm = displayNoteForm || displayTaskForm ? 'show-form' : 'edit'
